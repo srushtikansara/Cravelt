@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Cravelt | Dashboard</title>
+    <link rel="stylesheet" href="/UI/style.css">
+</head>
+
+<body>
+
+<header>
+    <div class="top-bar">
+        <div class="logo">
+            <h1>Cravelt</h1>
+            <p>Discover the best food near you</p>
+        </div>
+        <img src="/UI/images/prof.png" class="profile">
+    </div>
+
+    <div class="search-box">
+        <input list="locations" placeholder="Choose location" id="locationInput">
+        <input type="search" placeholder="Search restaurants or cuisines" id="searchInput">
+        <button class="search-btn">Search</button>
+    </div>
+</header>
+
+<datalist id="locations">
+    <option value="Sindhubhavan">
+    <option value="Bokadev">
+    <option value="Nikol">
+    <option value="Satellite">
+    <option value="Vaishnodevi">
+</datalist>
+
+<main>
+    <!-- FILTERS -->
+    <aside class="filters">
+        <h2>Filters</h2>
+
+        <fieldset>
+            <legend>Rating</legend>
+            <input type="checkbox" name="rating" value="4"> 4★ & above<br>
+            <input type="checkbox" name="rating" value="3"> 3★ & above
+        </fieldset>
+
+        <fieldset>
+            <legend>Price</legend>
+            <input type="checkbox" name="price" value="200-400"> ₹200–400<br>
+            <input type="checkbox" name="price" value="400-600"> ₹400–600<br>
+            <input type="checkbox" name="price" value="600+"> ₹600+
+        </fieldset>
+
+        <fieldset>
+            <legend>Cuisine</legend>
+            <input type="checkbox" name="cuisine" value="Indian"> Indian<br>
+            <input type="checkbox" name="cuisine" value="Chinese"> Chinese<br>
+            <input type="checkbox" name="cuisine" value="Cafe">Continental<br>
+            <input type="checkbox" name="cuisine" value="Italian"> Italian<br>
+            <input type="checkbox" name="cuisine" value="Vegan"> Mediterranean
+        </fieldset>
+           <!-- ===== NEW FILTERS ===== -->
+    <fieldset>
+  <legend>Ambiance</legend>
+  <input type="checkbox" name="ambience" value="casual"> Casual<br>
+  <input type="checkbox" name="ambience" value="family"> Family Friendly<br>
+  <input type="checkbox" name="ambience" value="romantic"> Romantic<br>
+  <input type="checkbox" name="ambience" value="luxury"> Luxury
+</fieldset>
+
+
+    <fieldset>
+  <legend>Food Type</legend>
+  <input type="checkbox" name="food" value="veg"> Vegetarian<br>
+  <input type="checkbox" name="food" value="vegan"> Vegan<br>
+  <input type="checkbox" name="food" value="nonveg"> Non-Vegetarian<br>
+  <input type="checkbox" name="food" value="dessert"> Desserts & Beverages
+</fieldset>
+
+
+    <fieldset>
+  <legend>Facilities</legend>
+  <input type="checkbox" name="facilities" value="takeaway"> Takeaway<br>
+  <input type="checkbox" name="facilities" value="delivery"> Home Delivery<br>
+  <input type="checkbox" name="facilities" value="valet"> Valet Parking<br>
+  <input type="checkbox" name="facilities" value="outdoor"> Outdoor Seating
+</fieldset>
+
+
+        <button class="apply-btn">Apply Filters</button>
+    </aside>
+
+    <!-- CONTENT -->
+    <section class="content">
+
+        <!-- BEST RESTAURANTS -->
+        <h2 class="section-title">Best Places to Eat</h2>
+        <div class="card-grid">
+
+            <div class="card fade-in restaurant-card" data-rating="4.9" data-price="1000" data-cuisine="Indian,Italian,Continental" data-food="Vegetarian,Vegan" data-ambience="Luxury" data-facilities="Valet Parking">
+                <img src="/UI/images/underNeem.jpeg" alt="Under The Neem Tree">
+               <div class="card-content">
+                 <h3 class="restaurant-name">Under The Neem Tree</h3>
+                  <p class="restaurant-rating">⭐ 4.9</p>
+                  <p class="restaurant-location">📍 Sindhubhavan</p>
+
+                   <p class="restaurant-details">
+        🍽 Cuisine: Indian, Continental<br>
+        🥗 Food Type: Vegetarian, Vegan<br>
+        🛋 Ambience: Luxury
+    </p>
+
+    <p class="restaurant-price">₹2000 for two</p>
+    <button class="favorite-btn"><span class="heart">♡</span></button>
+    <a href="/UI/view-details.html"><button class="view-btn">View Details</button></a>
+</div>
+
+            </div>
+
+            <div class="card fade-in restaurant-card" data-rating="4.7" data-price="850" data-cuisine="Indian,Italian" data-food="Vegetarian,Vegan" data-ambience="Family-Friendly" data-facilities="Home Delivery">
+                <img src="/UI/images/sk.jpeg" alt="Secret Kitchen">
+                <div class="card-content">
+    <h3 class="restaurant-name">Secret Kitchen</h3>
+    <p class="restaurant-rating">⭐ 4.4</p>
+    <p class="restaurant-location">📍 Satellite</p>
+
+    <p class="restaurant-details">
+        🍽 Cuisine: Indian, Italian<br>
+        🥗 Food Type: Vegetarian,Vegan<br>
+        🛋 Ambience: Family Friendly
+    </p>
+
+    <p class="restaurant-price">₹1700 for two</p>
+    <button class="favorite-btn"><span class="heart">♡</span></button>
+    <button class="view-btn">View Details</button>
+</div>
+
+            </div>
+
+            <div class="card fade-in restaurant-card" data-rating="4.6" data-price="500" data-cuisine="Indian" data-food="Vegetarian,Vegan" data-ambience="Romantic" data-facilities="Outdoor Seating">
+                <img src="/UI/images/m.jpeg" alt="@ Mango">
+                 <div class="card-content">
+    <h3 class="restaurant-name">@ Mango</h3>
+    <p class="restaurant-rating">⭐ 4.8</p>
+    <p class="restaurant-location">📍 Vaishnodevi</p>
+
+    <p class="restaurant-details">
+        🍽 Cuisine: Indian, Continental<br>
+        🥗 Food Type: Vegetarian, Vegan<br>
+        🛋 Ambience: Romantic
+    </p>
+
+    <p class="restaurant-price">₹1000 for two</p>
+    <button class="favorite-btn"><span class="heart">♡</span></button>
+    <button class="view-btn">View Details</button>
+</div>
+
+            </div>
+
+            <div class="card fade-in restaurant-card" data-rating="3.9" data-price="700" data-cuisine="Indian"data-food="Vegetarian,Non-Vegetarian" data-ambience="Casual" data-facilities="Home Delivery">
+                <img src="/UI/images/Indianfood.jpg.jpeg" alt="TQI">
+                  <div class="card-content">
+    <h3 class="restaurant-name">TQI</h3>
+    <p class="restaurant-rating">⭐ 3.9</p>
+    <p class="restaurant-location">📍 Nikol</p>
+
+    <p class="restaurant-details">
+        🍽 Cuisine: Indian<br>
+        🥗 Food Type: Vegetarian, Non-Vegetarian<br>
+        🛋 Ambience: Casual
+    </p>
+
+    <p class="restaurant-price">₹1000 for two</p>
+    <button class="favorite-btn"><span class="heart">♡</span></button>
+    <button class="view-btn">View Details</button>
+</div>
+
+            </div>
+        </div>
+
+        <!-- BEST CAFES -->
+        <h2 class="section-title">Best Cafes</h2>
+        <div class="card-grid">
+
+            <div class="card fade-in restaurant-card" data-rating="4.7" data-price="600" data-cuisine="Italian" data-food="Vegetarian" data-ambience="Family-Friendly" data-facilities="Valet Parking">
+                <img src="/UI/images/RoastToast.jpeg" alt="Roast Toast">
+                <div class="card-content">
+    <h3 class="restaurant-name">Roast Toast</h3>
+    <p class="restaurant-rating">⭐ 4.0</p>
+    <p class="restaurant-location">📍 Satellite</p>
+
+    <p class="restaurant-details">
+        🍽 Cuisine: Cafe, Italian<br>
+        🥗 Food Type: Desert and Beverages,Vegetarian<br>
+        🛋 Ambience: Family Friendly
+    </p>
+
+    <p class="restaurant-price">₹1200 for two</p>
+    <button class="favorite-btn"><span class="heart">♡</span></button>
+    <button class="view-btn">View Details</button>
+</div>
+
+            </div>
+
+            <div class="card fade-in restaurant-card" data-rating="4.1" data-price="550" data-cuisine="Continental,Italian" data-food="Vegetarian,Vegan" data-ambience="Romantic" data-facilities="Luxury">
+                <img src="/UI/images/Caffeza.jpeg" alt="Caffeza">
+                <div class="card-content">
+    <h3 class="restaurant-name">Caffeza</h3>
+    <p class="restaurant-rating">⭐ 4.7</p>
+    <p class="restaurant-location">📍 Sindhubhavan</p>
+
+    <p class="restaurant-details">
+        🍽 Cuisine: Cafe, Italian<br>
+        🥗 Food Type: Vegetarian, Vegan<br>
+        🛋 Ambience: Romantic
+    </p>
+
+    <p class="restaurant-price">₹1100 for two</p>
+    <button class="favorite-btn"><span class="heart">♡</span></button>
+    <button class="view-btn">View Details</button>
+</div>
+
+            </div>
+
+            <div class="card fade-in restaurant-card" data-rating="4.1" data-price="650" data-cuisine="Mediterranean" data-food="Desserts and Beverages" data-ambience="Casual" data-facilities="Outdoor Seating">
+                <img src="/UI/images/Little_French.jpeg" alt="Little French House">
+                <div class="card-content">
+    <h3 class="restaurant-name">Little French House</h3>
+    <p class="restaurant-rating">⭐ 3.8</p>
+    <p class="restaurant-location">📍 Bokadev</p>
+
+    <p class="restaurant-details">
+        🍽 Cuisine: Mediterranean<br>
+        🥗 Food Type: Desserts & Beverages<br>
+        🛋 Ambience: Casual
+    </p>
+
+    <p class="restaurant-price">₹1000 for two</p>
+    <button class="favorite-btn"><span class="heart">♡</span></button>
+    <button class="view-btn">View Details</button>
+</div>
+
+            </div>
+
+            <div class="card fade-in restaurant-card" data-rating="4.0" data-price="400" data-cuisine="Italian" data-food="Vegetarian,Vegan" data-ambience="Casual" data-facilities="Takeaway">
+                <img src="/UI/images/Cafede.jpeg" alt="Cafe de Italiano">
+                <div class="card-content">
+    <h3 class="restaurant-name">Cafe de Italiano</h3>
+    <p class="restaurant-rating">⭐ 3.6</p>
+    <p class="restaurant-location">📍 Nikol</p>
+
+    <p class="restaurant-details">
+        🍽 Cuisine: Italian<br>
+        🥗 Food Type: Vegetarian, Vegan<br>
+        🛋 Ambience: Casual
+    </p>
+
+    <p class="restaurant-price">₹1300 for two</p>
+    <button class="favorite-btn"><span class="heart">♡</span></button>
+    <button class="view-btn">View Details</button>
+</div>
+
+            </div>
+
+        </div>
+
+        <!-- CHINESE RESTAURANTS -->
+        <h2 class="section-title">Chinese Restaurants</h2>
+        <div class="card-grid">
+
+            <div class="card fade-in restaurant-card" data-rating="4.1" data-price="450" data-cuisine="Chinese" data-food="Vegetarian,Non-Vegetarian" data-ambience="Casual" data-facilities="Home Delivery">
+                <img src="/UI/images/Chinesefood.jpg.jpeg" alt="Dragon Wok">
+                <div class="card-content">
+    <h3 class="restaurant-name">Dragon Wok</h3>
+    <p class="restaurant-rating">⭐ 4.1</p>
+    <p class="restaurant-location">📍 Satellite</p>
+
+    <p class="restaurant-details">
+        🍽 Cuisine: Chinese<br>
+        🥗 Food Type: Vegetarian, Non-Vegetarian<br>
+        🛋 Ambience: Casual
+    </p>
+
+    <p class="restaurant-price">₹1000 for two</p>
+    <button class="favorite-btn"><span class="heart">♡</span></button>
+    <button class="view-btn">View Details</button>
+</div>
+
+            </div>
+
+            <div class="card fade-in restaurant-card" data-rating="4.7" data-price="380" data-cuisine="Chinese" data-food="Non-Vegetarian" data-ambience="Family-Friendly" data-facilities="Valet Parking">
+                <img src="/UI/images/Chinesefood.jpg.jpeg" alt="Dragon Wok">
+                <div class="card-content">
+    <h3 class="restaurant-name">Mad Over Grills</h3>
+    <p class="restaurant-rating">⭐ 4.7</p>
+    <p class="restaurant-location">📍 Vaishnodevi</p>
+
+    <p class="restaurant-details">
+        🍽 Cuisine: Chinese<br>
+        🥗 Food Type: Non-Vegetarian<br>
+        🛋 Ambience: Family Friendly
+        
+    </p>
+
+    <p class="restaurant-price">₹800 for two</p>
+    <button class="favorite-btn"><span class="heart">♡</span></button>&nbsp;
+    <button class="view-btn">View Details</button>
+</div>
+
+            </div>
+
+            <div class="card fade-in restaurant-card" data-rating="4.5" data-price="900" data-cuisine="Chinese"data-food="Vegetarian" data-ambience="Family-Friendly" data-facilities="Valet Parking">
+                <img src="/UI/images/Chinesefood.jpg.jpeg" alt="Wok Tok">
+                 <div class="card-content">
+                  <h3 class="restaurant-name">Wok Tok</h3>
+                  <p class="restaurant-rating">⭐ 4.5</p>
+                  <p class="restaurant-location">📍 Satellite</p>
+                  <p class="restaurant-details">
+                  🍽 Cuisine: Chinese<br>
+                  🥗 Food Type: Vegetarian, Non-Vegetarian<br>
+                  🛋 Ambience: Casual
+                 </p>
+                  <p class="restaurant-price">₹900 for two</p>
+    <button class="favorite-btn"><span class="heart">♡</span></button>
+    <button class="view-btn">View Details</button>
+                 </div>
+             </div>
+
+            <div class="card fade-in restaurant-card" data-rating="4.4" data-price="900" data-cuisine="Chinese" data-food="Vegetarian,Vegan" data-ambience="Romantic" data-facilities="Outdoor Seating">
+                <img src="/UI/images/Chinesefood.jpg.jpeg" alt="Chow Chow">
+                <div class="card-content">
+    <h3 class="restaurant-name">Chow Chow</h3>
+    <p class="restaurant-rating">⭐ 4.4</p>
+    <p class="restaurant-location">📍 Sindhubhavan</p>
+
+    <p class="restaurant-details">
+        🍽 Cuisine: Chinese<br>
+        🥗 Food Type: Vegetarian, Vegan<br>
+        🛋 Ambience: Romantic
+    </p>
+
+    <p class="restaurant-price">₹1200 for two</p>
+    <button class="favorite-btn"><span class="heart">♡</span></button>
+    <button class="view-btn">View Details</button>
+</div>
+
+            </div>
+
+        </div>
+
+    </section>
+</main>
+
+<section class="map">
+    <h2>Map View</h2>
+    <div class="map-container">
+        <iframe
+            src="https://www.google.com/maps?q=Ahmedabad%20restaurants&output=embed"
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade">
+        </iframe>
+    </div>
+    <p class="map-note">
+        Showing popular restaurants near your selected location
+    </p>
+</section>
+
+<footer>
+    © 2026 Cravelt. All Rights Reserved.
+</footer>
+
+<nav class="bottom-nav">
+    <a href="#" class="active">Home</a>
+    <a href="/UI/search.html">Search</a>
+    <a href="#">AI Advisor</a>
+    <a href="/UI/profile.html">Profile</a>
+</nav>
+
+<script src="/UI/script/script.js"></script>
+</body>
+</html>

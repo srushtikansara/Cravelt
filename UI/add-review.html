@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Add Review | Cravelt</title>
+    <link rel="stylesheet" href="/UI/add-review.css">
+</head>
+<body>
+
+<!-- ===== HEADER ===== -->
+<header class="header">
+    <div class="header-left">
+        <button class="back-btn" onclick="history.back()">←</button>
+        <div class="logo">
+            <h2>Cravelt</h2>
+            <span>Discover Food</span>
+        </div>
+    </div>
+    <div class="header-right">
+        <img src="/UI/images/prof.png" class="profile-pic">
+    </div>
+</header>
+
+<!-- ===== HERO IMAGE ===== -->
+<div class="hero">
+    <img src="/UI/images/nt.jpeg" alt="Under The Neem Tree">
+    <div class="hero-overlay"></div>
+</div>
+
+<!-- ===== ADD REVIEW FORM ===== -->
+<section class="add-review-section">
+    <h2>Add Your Review</h2>
+    <form class="add-review-form">
+        <div class="form-group">
+            <label for="name">Your Name</label>
+            <input type="text" id="name" placeholder="Enter your name" required>
+        </div>
+
+        <div class="form-group">
+            <label for="rating">Rating</label>
+            <select id="rating" required>
+                <option value="">Select Rating</option>
+                <option value="5">5 ★ Excellent</option>
+                <option value="4">4 ★ Very Good</option>
+                <option value="3">3 ★ Good</option>
+                <option value="2">2 ★ Poor</option>
+                <option value="1">1 ★ Terrible</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label for="comment">Comment</label>
+            <textarea id="comment" placeholder="Write your review..." rows="5" required></textarea>
+        </div>
+
+        <button type="submit" class="submit-btn">Submit Review</button>
+    </form>
+</section>
+
+<!-- ===== FOOTER ===== -->
+<footer class="footer">
+    © 2026 Cravelt. All Rights Reserved.
+</footer>
+<script src="/UI/script/script.js"></script>
+</body>
+</html>
