@@ -1,0 +1,167 @@
+/* ===== GENERAL STYLES ===== */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #fdfdfd;
+    color: #333;
+}
+
+h2, h3 {
+    margin: 20px 0 10px;
+}
+
+/* ===== HEADER IMAGE ===== */
+.restaurant-header {
+    position: relative;
+    text-align: left;
+    color: white;
+}
+
+.restaurant-header .header-bg {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    filter: brightness(60%);
+}
+
+.restaurant-header .back-btn {
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    background: rgba(0,0,0,0.5);
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.restaurant-info {
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+}
+
+.restaurant-info h1 {
+    margin: 0 0 5px 0;
+}
+
+.restaurant-info p {
+    margin: 2px 0;
+}
+
+.restaurant-info .meta span {
+    display: inline-block;
+    margin-right: 15px;
+    font-size: 14px;
+}
+
+/* ===== EXTERNAL REVIEWS ===== */
+.external-reviews {
+    padding: 20px;
+    background-color: #fafafa;
+    border-bottom: 1px solid #ddd;
+}
+
+.external-reviews h2, .external-reviews h3 {
+    margin-bottom: 10px;
+}
+
+.google-reviews, .zomato-reviews {
+    margin-bottom: 20px;
+}
+
+.review-link {
+    text-decoration: none;
+    color: inherit;
+    display: block;
+}
+
+.review-link .review {
+    background-color: #fff;
+    padding: 12px 16px;
+    margin-bottom: 10px;
+    border-radius: 8px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    transition: background-color 0.2s, box-shadow 0.2s;
+}
+
+.review-link .review:hover {
+    background-color: #f0f8ff;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+
+.review-link strong {
+    font-weight: 600;
+}
+
+.review-link span {
+    float: right;
+    font-weight: bold;
+}
+
+/* ===== USER REVIEWS ===== */
+.reviews {
+    padding: 20px;
+}
+
+.reviews h2 {
+    margin-bottom: 15px;
+}
+
+.review {
+    background-color: #fff;
+    padding: 12px 16px;
+    margin-bottom: 12px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.review-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 8px;
+}
+
+.stars {
+    color: #FFD700;
+    font-size: 14px;
+}
+
+.review-actions {
+    margin-top: 8px;
+}
+
+.review-actions button {
+    background-color: #f2f2f2;
+    border: none;
+    padding: 6px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-right: 5px;
+    font-size: 13px;
+    transition: background 0.2s;
+}
+
+.review-actions button:hover {
+    background-color: #e0e0e0;
+}
+
+/* ===== ADD REVIEW BUTTON ===== */
+.action-btn {
+    background-color: #FF6F61;
+    color: white;
+    border: none;
+    padding: 10px 18px;
+    border-radius: 25px;
+    cursor: pointer;
+    font-size: 14px;
+    margin-bottom: 15px;
+    transition: background 0.2s;
+}
+
+.action-btn:hover {
+    background-color: #e65c50;
+}
