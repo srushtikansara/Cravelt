@@ -6,7 +6,22 @@ const userSchema = new mongoose.Schema({
         type: String,
         unique: true
     },
-    password: String
+    password: String,
+   favourites: {
+  type: [String],
+  default: []
+},
+    reviews:[{
+        type:mongoose.Schema.Types.ObjectId,
+        ref:"Review"
+    }],
+    log:[{
+        action:String,
+        timestamp: { type: Date, default: Date.now }
+    }]
+},
+{
+    timestamps:true
 });
 
 module.exports = mongoose.model("User", userSchema);
