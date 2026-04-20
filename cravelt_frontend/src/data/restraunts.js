@@ -1,0 +1,620 @@
+import nt from "../assets/nt.jpeg";
+import underNeem from "../assets/underNeem.jpeg";
+import unt_back from "../assets/unt_back.jpeg";
+import unt from "../assets/unt.jpg";
+import untfoodd from "../assets/untfoodd.jpeg";
+import untfoo from "../assets/unt_foo.jpeg";
+import sk from "../assets/sk.jpeg";
+import sk2 from "../assets/sk_2.jpg";
+import sk3 from "../assets/sk_3.jpg";
+import sk4 from "../assets/sk_4.jpg";
+import sk5 from "../assets/sk_5.jpg";
+import man4 from "../assets/man_4.jpg";
+import man5 from "../assets/man_5.png";
+
+import mango from "../assets/m.jpeg";
+import tqi from "../assets/unt.jpg";
+import roasttoast from "../assets/RoastToast.jpeg";
+import caffeza from "../assets/Caffeza.jpeg";
+import littlefrenchhouse from "../assets/Little_French.jpeg";
+import cafedeitaliano from "../assets/Cafede.jpeg";
+import dragonwok from "../assets/Dragon_wok.jpg";
+import chowchow from "../assets/chow_chow.jpg";
+import taranovas from "../assets/taranovas.jpeg";
+import pizza from "../assets/pizza.jpeg";
+import pizza2 from "../assets/pizza_place.jpeg";
+import salepepe from "../assets/salepepe.jpeg";
+import loi from "../assets/loi.jpeg";
+import nutsweet from "../assets/nutsweet.jpeg";
+import snowberry from "../assets/snowberry.jpeg";
+import moi from "../assets/moi.jpeg";
+import huberholly from "../assets/huberholly.jpeg";
+import cacaote from "../assets/cacaote.jpg";
+import street1 from "../assets/street1.jpeg";
+import street4 from "../assets/street4.jpeg";
+import street3 from "../assets/street3.jpeg";
+
+import ashkulfi from "../assets/ashkulfi.jpeg";
+import street5 from "../assets/street5.jpeg";
+import surat1 from "../assets/surat1.jpeg";
+import surat2 from "../assets/surat2.jpeg";
+import surat5 from "../assets/surat5.jpg";
+import spice from "../assets/spice_terrace.jpeg";
+
+export const restaurants = [
+  {
+    id: "1",
+    name: "Under The Neem Tree",
+    image: nt,
+    photos: [nt, underNeem, unt_back, unt, untfoodd, untfoo],
+    rating: 4.9,
+    googleRating: 4.5,
+    category: "restaurants",
+    cuisine: ["Indian", "Continental"],
+    ambience: ["luxury", "romantic"],
+    dietary: ["veg"],
+    features: ["fine-dining", "outdoor", "instagrammable"],
+    phone: "+91 9876543210",
+    priceForTwo: 1200,
+    address: "Sindhubhavan Road, Ahmedabad",
+    hours: "11:00 AM - 11:00 PM",
+    description:
+      "Premium fine dining with elegant ambience and authentic Indian cuisine. Experience rich flavors, warm hospitality, and a luxurious setting perfect for special occasions.",
+    amenities: ["WiFi", "Parking", "Air Conditioning"],
+  },
+
+  {
+    id: "2",
+    name: "Secret Kitchen",
+    image: sk,
+    photos: [sk, sk2, sk3, sk4, sk5],
+    rating: 4.4,
+    googleRating: 4.3,
+    category: "restaurants",
+    cuisine: ["Indian", "Italian"],
+    ambience: ["family", "casual"],
+     dietary: ["veg"],
+    features: ["family dining"],
+    phone: "+91 9123456780",
+    priceForTwo: 800,
+    address: "Satellite Road Ahmedabad",
+    hours: "11:00 AM - 10:30 PM",
+    description:
+      "Cozy family restaurant serving Italian and Indian dishes with a comfortable and welcoming atmosphere.",
+    amenities: ["WiFi", "Family Seating"],
+  },
+
+  {
+    id: "3",
+    name: "@ Mango",
+    image: mango,
+    photos: [mango, man4, man5],
+    rating: 4,
+    googleRating: 4.2,
+    category: "restaurants",
+    cuisine: ["Indian", "Continental"],
+    dietary: ["veg"],
+    ambience: ["family"],
+    features: ["casual dining"],
+    phone: "+91 9988776655",
+    priceForTwo: 700,
+    address: "Vaishnodevi Circle Ahmedabad",
+    hours: "11:30 AM - 11:00 PM",
+    description:
+      "Modern vegetarian fusion restaurant offering innovative dishes in a relaxed environment.",
+    amenities: ["Parking"],
+  },
+
+  {
+    id: "4",
+    name: "Three Quarters Indian Kitchen",
+    image: tqi,
+    rating: 3.9,
+    googleRating: 3.8,
+    category: "restaurants",
+    cuisine: ["Indian", "Chinese"],
+    ambience: ["casual"],
+    dietary: ["veg"],
+    features: ["quick service"],
+    phone: "+91 9090909091",
+    priceForTwo: 600,
+    address: "Bodakdev Ahmedabad",
+    hours: "12:00 PM - 11:00 PM",
+    description:
+      "Casual dining spot serving a mix of Indian and Chinese dishes with fast service.",
+    amenities: ["WiFi"],
+  },
+
+  {
+    id: "5",
+    name: "Roast Toast",
+    image: roasttoast,
+    rating: 4.7,
+    googleRating:4.5,
+    category: "cafes",
+    cuisine: ["Italian", "Continental"],
+     dietary: ["veg", "vegan"],
+    ambience: ["casual"],
+    features: ["cafe", "brunch"],
+    phone: "+91 9000000001",
+    priceForTwo: 500,
+    address: "Bodakdev Ahmedabad",
+    hours: "9:00 AM - 10:00 PM",
+    description:
+      "Trendy cafe ideal for brunch and coffee lovers with a relaxed vibe.",
+    amenities: ["WiFi", "Outdoor Seating"],
+  },
+
+  {
+    id: "6",
+    name: "Caffeza",
+    image: caffeza,
+    rating: 4.2,
+    googleRating: 4.5,
+    category: "cafes",
+    cuisine: ["Cafe"],
+    dietary: ["veg", "vegan","eggless"],
+    ambience: ["casual"],
+    features: ["work-friendly"],
+    phone: "+91 9000000002",
+    priceForTwo: 400,
+    address: "Sindhubhavan Road Ahmedabad",
+    hours: "8:00 AM - 9:00 PM",
+    description:
+      "Perfect work-friendly cafe with great coffee and peaceful environment.",
+    amenities: ["WiFi"],
+  },
+
+  {
+    id: "7",
+    name: "Little French House",
+    image: littlefrenchhouse,
+    rating: 4.5,
+    googleRating: 4.9,
+    category: "cafes",
+    cuisine: ["French"],
+     dietary: ["veg"], 
+    ambience: ["romantic"],
+    features: ["instagrammable"],
+    phone: "+91 9000000003",
+    priceForTwo: 500,
+    address: "Nikol Ahmedabad",
+    hours: "10:00 AM - 9:30 PM",
+    description:
+      "Charming French-themed cafe perfect for romantic outings.",
+    amenities: ["Outdoor Seating"],
+  },
+
+  {
+    id: "8",
+    name: "Cafe de Italiano",
+    image: cafedeitaliano,
+    rating: 4.0,
+    googleRating: 4.2,
+    category: "cafes",
+     dietary: ["veg"],
+    cuisine: ["Italian"],
+    ambience: ["luxury"],
+    phone: "+91 9000000004",
+    priceForTwo: 600,
+    address: "Satellite Road Ahmedabad",
+    hours: "11:00 AM - 10:00 PM",
+    description:
+      "Italian cafe offering authentic pizza and pasta in a premium setting.",
+    amenities: ["WiFi"],
+  },
+
+  {
+    id: "9",
+    name: "Dragon Wok",
+    image: dragonwok,
+    rating: 3.5,
+    googleRating: 3.8,
+
+    category: "chinese",
+    cuisine: ["Chinese"],
+     dietary: ["non-veg"],
+    ambience: ["casual"],
+    phone: "+91 9000000005",
+    priceForTwo: 500,
+    address: "Satellite Road Ahmedabad",
+    hours: "11:00 AM - 10:30 PM",
+    description:
+      "Popular Chinese restaurant known for quick service and bold flavors.",
+    amenities: ["Takeaway"],
+  },
+
+  {
+    id: "10",
+    name: "Chow Chow",
+    image: chowchow,
+    rating: 4.1,
+    googleRating: 4.3,
+    category: "chinese",
+    cuisine: ["Chinese"],
+      dietary: ["veg"],
+    ambience: ["family"],
+    phone: "+91 9000000006",
+    priceForTwo: 550,
+    address: "Satellite Road Ahmedabad",
+    hours: "11:30 AM - 10:30 PM",
+    description:
+      "Family-friendly Chinese restaurant with a wide variety of dishes.",
+    amenities: ["Family Seating"],
+  },
+
+  {
+    id: "11",
+    name: "Taranovas Pizza",
+    image: taranovas,
+    rating: 3.5,
+    googleRating: 3.7,
+    category: "pizza",
+    cuisine: ["Pizza"],
+     dietary: ["veg"],  
+    ambience: ["casual"],
+    phone: "+91 9000000007",
+    priceForTwo: 1500,
+    address: "Prahlad Nagar Ahmedabad",
+    hours: "10:45 AM - 2:00 PM",
+    description:
+      "Pizza place with a variety of toppings and premium experience.",
+    amenities: ["Family Seating"],
+  },
+
+  {
+    id: "12",
+    name: "Sale & Pepe",
+    image: salepepe,
+    rating: 4.6,
+    googleRating: 4.2,
+    category: "pizza",
+    cuisine: ["Italian"],
+      dietary: ["veg"],
+    ambience: ["luxury", "romantic"],
+    phone: "+91 9000000008",
+    priceForTwo: 1400,
+    address: "Bodakdev Ahmedabad",
+    hours: "12:00 PM - 11:00 PM",
+    description:
+      "Authentic Italian dining with wood-fired pizzas and elegant ambience.",
+    amenities: ["WiFi", "Parking", "Air Conditioning"],
+  },
+
+  {
+    id: "13",
+    name: "La Pino'z Pizza",
+    image: pizza,
+    rating: 4.2,
+    googleRating: 4.4,
+    category: "pizza",
+    cuisine: ["Pizza"],
+      dietary: ["veg"],
+    ambience: ["casual"],
+    phone: "+91 9000000009",
+    priceForTwo: 600,
+    address: "Satellite Road Ahmedabad",
+    hours: "11:00 AM - 11:30 PM",
+    description:
+      "Popular pizza chain offering budget-friendly and loaded pizzas.",
+    amenities: ["Delivery", "Takeaway"],
+  },
+
+  {
+    id: "14",
+    name: "US Pizza",
+    image: pizza2,
+    rating: 4.1,
+    googleRating: 3.9,
+    category: "pizza",
+    cuisine: ["Pizza"],
+      dietary: ["veg"],
+    ambience: ["family"],
+    phone: "+91 9000000010",
+    priceForTwo: 500,
+    address: "Prahlad Nagar Ahmedabad",
+    hours: "11:00 AM - 10:30 PM",
+    description:
+      "Famous for unlimited pizza buffet and family dining experience.",
+    amenities: ["Parking", "Family Seating"],
+  },
+
+  {
+    id: "15",
+    name: "Lio Pizzeria",
+    image: loi,
+    rating:3.4,
+    googleRating: 3.7,
+    category: "pizza",
+    cuisine: ["Italian"],
+      dietary: ["veg"],
+    ambience: ["luxury"],
+    phone: "+91 9000000011",
+    priceForTwo: 1600,
+    address: "SG Highway Ahmedabad",
+    hours: "12:00 PM - 11:00 PM",
+    description:
+      "Premium Italian restaurant offering authentic vegetarian pizzas.",
+    amenities: ["WiFi", "Parking", "Air Conditioning"],
+  },
+
+  {
+    id: "16",
+    name: "Nutsweet",
+    image: nutsweet,
+    rating: 4.1,
+    googleRating: 4.0,
+    category: "desserts",
+     dietary: ["eggless"],
+    cuisine: ["Desserts"],
+    ambience: ["casual"],
+    phone: "+91 9000000012",
+    priceForTwo: 600,
+    address: "Satellite Road Ahmedabad",
+    hours: "10:00 AM - 11:00 PM",
+    description:
+      "Popular dessert spot known for cakes, pastries, and sweets.",
+    amenities: ["Takeaway"],
+  },
+
+  {
+    id: "17",
+    name: "Snowberry",
+    image: snowberry,
+    rating: 4.4,
+    googleRating: 4.2,
+    category: "desserts",
+    cuisine: ["Desserts"],
+    dietary: ["vegan"],
+    ambience: ["family"],
+    phone: "+91 9000000013",
+    priceForTwo: 500,
+    address: "Bodakdev Ahmedabad",
+    hours: "11:00 AM - 12:00 AM",
+    description:
+      "Trendy dessert place famous for waffles and ice creams.",
+    amenities: ["Seating"],
+  },
+
+  {
+    id: "18",
+    name: "Moi - The Dessert Studio",
+    image: moi,
+    rating: 4.7,
+    googleRating: 4.3,    
+    category: "desserts",
+    cuisine: ["Desserts"],
+      dietary: ["egg"],
+    ambience: ["luxury"],
+    phone: "+91 9000000014",
+    priceForTwo: 1000,
+    address: "Prahlad Nagar Ahmedabad",
+    hours: "11:00 AM - 10:30 PM",
+    description:
+      "Premium dessert studio offering artistic cakes and pastries.",
+    amenities: ["AC", "Seating"],
+  },
+
+  {
+    id: "19",
+    name: "Huber & Holly",
+    image: huberholly,
+    rating: 4.5,
+    googleRating: 4.5,
+    category: "desserts",
+    cuisine: ["Desserts"],
+    dietary: ["eggless"],
+    ambience: ["casual"],
+    phone: "+91 9000000015",
+    priceForTwo: 600,
+    address: "SG Highway Ahmedabad",
+    hours: "11:00 AM - 11:30 PM",
+    description:
+      "Famous for handcrafted ice creams and unique dessert flavors.",
+    amenities: ["Seating"],
+  },
+
+  {
+    id: "20",
+    name: "Cacaoté",
+    image: cacaote,
+    rating: 4.6,
+    googleRating: 4.9,
+    dietary: ["egg"],
+    category: "desserts",
+    cuisine: ["Desserts"],
+    ambience: ["luxury"],
+    phone: "+91 9000000016",
+    priceForTwo: 900,
+    address: "Bodakdev Ahmedabad",
+    hours: "10:30 AM - 10:00 PM",
+    description:
+      "Luxury chocolate boutique with handcrafted premium desserts.",
+    amenities: ["Takeaway"],
+  },
+  
+{
+  id: "21",
+  name: "Balan Dosa",
+  image: street5,
+  rating: 4.3,
+  googleRating: 4.2,
+  category: "South Indian",
+  cuisine: ["South Indian"],
+   dietary: ["veg"],
+  ambience: ["casual"],
+  phone: "+91 9000000035",
+  priceForTwo: 200,
+  address: "Maninagar, Ahmedabad",
+  hours: "5:00 PM - 11:00 PM",
+  description: "Famous street dosa stall with crispy and cheesy dosa varieties.",
+  amenities: ["Takeaway"],
+},
+
+{
+  id: "22",
+  name: "HL Frankie",
+  image: street3,
+  rating: 4.4,
+  googleRating: 4.3,
+  category: "Street Food",
+  cuisine: ["Street Food"],
+   dietary: ["veg"],
+  ambience: ["student crowd", "casual"],
+  phone: "+91 9000000031",
+  priceForTwo: 150,
+  address: "HL College Road, Ahmedabad",
+  hours: "4:00 PM - 11:00 PM",
+  description:
+    "Popular street food spot near HL College known for delicious veg and cheese frankie rolls, loved by students.",
+  amenities: ["Takeaway"],
+},
+
+
+{
+  id: "23",
+  name: "Jay Bhavani Vadapav",
+  image: street1,
+  rating: 4.5,
+  googleRating: 4.4,
+  category: "Street Food",
+  cuisine: ["Street Food"],
+   dietary: ["veg"],
+  ambience: ["casual"],
+  phone: "+91 9000000031",
+  priceForTwo: 150,
+  address: "Multiple outlets, Ahmedabad",
+  hours: "10:00 AM - 11:00 PM",
+  description: "Famous for butter vadapav and cheese vadapav in Ahmedabad.",
+  amenities: ["Takeaway"],
+},
+{
+  id: "24",
+  name: "Asharfi Kulfi",
+  image: ashkulfi,
+  rating: 4.4,
+  googleRating: 4.3,
+  category: "Desserts",
+  cuisine: ["Desserts"],
+   dietary: ["eggless"],
+  ambience: ["casual"],
+  phone: "+91 9000000033",
+  priceForTwo: 200,
+  address: "CG Road, Ahmedabad",
+  hours: "6:00 PM - 12:00 AM",
+  description: "Popular late-night spot for kulfi and falooda.",
+  amenities: ["Takeaway"],
+},
+
+{
+  id: "25",
+  name: "Honest Pav Bhaji",
+  image: street4,
+  rating: 4.5,
+  googleRating: 4.4,
+  category: ["Street Food","South Indian"],
+  cuisine: ["Street Food","South Indian"],
+   dietary: ["veg"],
+  ambience: ["casual"],
+  phone: "+91 9000000034",
+  priceForTwo: 250,
+  address: "Multiple outlets, Ahmedabad",
+  hours: "11:00 AM - 11:30 PM",
+  description: "Very famous chain known for butter-loaded pav bhaji.",
+  amenities: ["Seating", "Takeaway"],
+},
+
+{
+  id: "26",
+  name: "Jani Locho",
+  image: surat1,
+  rating: 4.6,
+  googleRating: 4.5,
+  category: "Gujarati",
+  cuisine: ["Gujarati"],
+   dietary: ["veg"],
+  ambience: ["casual"],
+  phone: "+91 261 242 1234",
+  priceForTwo: 200,
+  address: "Chauta Bazar, Surat",
+  hours: "8:00 AM - 9:00 PM",
+  description: "One of the most famous places in Surat for authentic Surti locho.",
+  amenities: ["Takeaway"],
+},
+
+{
+  id: "27",
+  name: "Bhanu Khaman",
+  image: surat1,
+  rating: 4.6,
+  googleRating: 4.5,
+  category: "Gujarati",
+  cuisine: ["Gujarati"],
+   dietary: ["veg"],
+  ambience: ["casual"],
+  phone: "+91 261 259 9999",
+  priceForTwo: 200,
+  address: "Mota Varachha, Surat",
+  hours: "7:30 AM - 9:30 PM",
+  description:
+    "One of the most famous places in Surat for soft and fluffy khaman with authentic Surti taste.",
+  amenities: ["Takeaway"],
+},
+
+{
+  id: "28",
+  name: "Ganesh Aloo Puri",
+  image: surat2,
+  rating: 4.5,
+  googleRating: 4.4,
+  category: "Gujarati",
+  cuisine: ["Gujarati", "Street Food"],
+   dietary: ["veg"],
+  ambience: ["casual"],
+  phone: "+91 261 245 0000",
+  priceForTwo: 150,
+  address: "Station Road, Surat",
+  hours: "6:30 AM - 12:00 PM",
+  description:
+    "Very popular breakfast spot in Surat known for spicy aloo sabzi with crispy puri served hot.",
+  amenities: ["Takeaway"],
+},
+
+{
+  id: "29",
+  name: "Jamnadas Ghariwala",
+  image: surat5,
+  rating: 4.8,
+  googleRating: 4.7,
+  category: "Desserts",
+  cuisine: ["Desserts"],
+    dietary: ["egg"],
+  ambience: ["casual"],
+  phone: "+91 261 242 8899",
+  priceForTwo: 500,
+  address: "Nanpura, Surat",
+  hours: "9:00 AM - 9:00 PM",
+  description: "Iconic shop for authentic Surti ghari.",
+  amenities: ["Takeaway"],
+},
+
+{
+  id: "30",
+  name: "Spice Terrace",
+  image: surat1,
+  rating: 4.7,
+  googleRating: 4.7,
+  category: "Indian",
+  cuisine: ["North Indian", "Awadhi", "Mughlai"],
+   dietary: ["veg", "non-veg"],
+  ambience: ["luxury", "romantic"],
+  phone: "+91 261 711 7000",
+  priceForTwo: 4000,
+  address: "Surat Marriott Hotel, Athwa, Surat",
+  hours: "7:00 PM - 11:00 PM",
+  description:
+    "Luxury fine dining restaurant at Marriott offering authentic Awadhi and North Indian cuisine with rooftop ambience and live ghazal music.",
+  amenities: ["AC", "Parking", "Outdoor Seating", "Fine Dining"],
+},
+];
+

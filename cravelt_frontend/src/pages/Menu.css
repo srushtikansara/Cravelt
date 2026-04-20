@@ -1,0 +1,255 @@
+.menu-page {
+  font-family: Arial, sans-serif;
+  min-height: 100vh;
+  padding-bottom: 50px;
+
+  /* 🌞 LIGHT THEME */
+  background: #f6f6f6;
+  color: #222;
+}
+
+/* 🌙 DARK THEME */
+.menu-page.dark {
+  background: #0b0b0b;
+  color: #f5f5f5;
+}
+.menu-page.dark {
+  background: #0b0b0b;
+  color: #f5f5f5;
+}
+
+/* HEADER DARK */
+.menu-page.dark .menu-item {
+  background: #1a1a1a;
+  border: 1px solid #2a2a2a;
+}
+
+.menu-page.dark .sticky-bar {
+  background: #141414;
+}
+
+.menu-page.dark .price {
+  color: #ffd369;
+}
+
+/* =========================
+   🔥 PREMIUM HEADER
+========================= */
+.menu-header {
+  height: 220px;
+  border-radius: 18px;
+  margin: 15px;
+  position: relative;
+  overflow: hidden;
+
+  background-size: cover;
+  background-position: center;
+
+  box-shadow: 0 10px 30px rgba(0,0,0,0.25);
+}
+
+/* DARK OVERLAY FOR HEADER */
+.menu-header::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    135deg,
+    rgba(0,0,0,0.3),
+    rgba(0,0,0,0.75)
+  );
+}
+
+/* HEADER TEXT */
+.menu-header-content {
+  position: absolute;
+  bottom: 18px;
+  left: 20px;
+  z-index: 2;
+  color: white;
+}
+
+.menu-header-content h1 {
+  font-size: 28px;
+  margin: 0;
+  font-weight: bold;
+}
+
+.menu-header-content p {
+  font-size: 14px;
+  opacity: 0.9;
+}
+
+/* =========================
+   🌈 STICKY CATEGORY BAR
+========================= */
+.sticky-bar {
+  position: sticky;
+  top: 0;
+  z-index: 999;
+
+  display: flex;
+  gap: 10px;
+  overflow-x: auto;
+
+  padding: 12px;
+  background: white;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+}
+
+.menu-page.dark .sticky-bar {
+  background: #141414;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.5);
+}
+
+.cat-btn {
+  padding: 8px 14px;
+  border: none;
+  border-radius: 20px;
+
+  background: #ff4d4d;
+  color: white;
+
+  font-size: 13px;
+  cursor: pointer;
+  white-space: nowrap;
+
+  transition: 0.3s;
+}
+
+.cat-btn:hover {
+  transform: scale(1.05);
+  background: #e63b3b;
+}
+
+/* =========================
+   🍽️ TITLE
+========================= */
+.menu-title {
+  text-align: center;
+  margin: 20px 0;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+/* =========================
+   📂 CATEGORY SECTION
+========================= */
+.category-section {
+  max-width: 1000px;
+  margin: 25px auto;
+  padding: 0 15px;
+}
+
+/* =========================
+   🌄 CATEGORY BANNER
+========================= */
+.category-banner {
+  height: 160px;
+  border-radius: 16px;
+  position: relative;
+  overflow: hidden;
+
+  background-size: cover;
+  background-position: center;
+
+  margin-bottom: 12px;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+}
+
+/* DARK OVERLAY */
+.category-banner::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.55);
+}
+
+.category-banner .overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  color: white;
+  font-size: 24px;
+  font-weight: bold;
+}
+
+/* =========================
+   🍜 ITEMS CONTAINER
+========================= */
+.items-container {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+/* =========================
+   🍽️ ITEM CARD
+========================= */
+.menu-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  padding: 14px 16px;
+  border-radius: 12px;
+
+  background: white;
+  border: 1px solid #eee;
+
+  transition: 0.25s ease;
+}
+
+/* DARK MODE ITEM */
+.menu-page.dark .menu-item {
+  background: #1a1a1a;
+  border: 1px solid #2a2a2a;
+}
+
+.menu-item:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(0,0,0,0.08);
+}
+
+/* ITEM TEXT */
+.menu-item h3 {
+  margin: 0;
+  font-size: 16px;
+}
+
+/* VEG / NON VEG */
+.veg {
+  font-size: 12px;
+  color: green;
+}
+
+.nonveg {
+  font-size: 12px;
+  color: red;
+}
+
+/* PRICE */
+.price {
+  font-size: 16px;
+  font-weight: bold;
+  color: #111;
+}
+
+/* DARK PRICE */
+.menu-page.dark .price {
+  color: #ffd369;
+}
+
+/* =========================
+   📱 STATES
+========================= */
+.loading,
+.empty {
+  text-align: center;
+  padding: 60px;
+  font-size: 18px;
+  opacity: 0.7;
+}

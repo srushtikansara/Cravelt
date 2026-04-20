@@ -1,0 +1,54 @@
+.search-page {
+    display: flex;
+    height: 100vh;
+}
+
+.restaurant-panel {
+    width: 30%;
+    background: #f8f8f8;
+    overflow-y: auto;
+    padding: 20px;
+}
+
+.map-panel {
+    width: 70%;
+    position: relative;
+}
+
+.restaurant-list {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.restaurant-item.active {
+    border: 2px solid orange;
+    border-radius: 10px;
+}
+
+.selected-restaurant-card {
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    background: white;
+    width: 280px;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+.selected-restaurant-card img {
+    width: 100%;
+    height: 120px;
+    object-fit: cover;
+}
+
+.card-content {
+    padding: 10px;
+}
+
+.search-box {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 15px;
+}

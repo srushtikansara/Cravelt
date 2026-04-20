@@ -1,0 +1,125 @@
+.card {
+  width: 100%;
+  max-width: 260px;
+  background: white;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s ease;
+  display: flex;
+  flex-direction: column;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+}
+
+/* IMAGE SECTION */
+.card-img {
+  position: relative;
+}
+
+.card-img img {
+  width: 100%;
+  height: 170px;
+  object-fit: cover;
+  border-top-left-radius: 12px;
+  border-top-right-radius: 12px;
+}
+
+/* RATING BADGE */
+.rating {
+  position: absolute;
+  top: 8px;
+  left: 8px;
+  background: #267e3e;
+  color: white;
+  padding: 3px 8px;
+  font-size: 13px;
+  border-radius: 6px;
+}
+
+/* HEART BUTTON */
+.like-btn {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  border: none;
+  background: white;
+  border-radius: 50%;
+  padding: 5px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+/* CONTENT */
+.card-content {
+  padding: 12px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  /* ensures button stays at bottom */
+  flex-grow: 1;
+}
+
+.card-content h4 {
+  font-size: 16px;
+  margin-bottom: 4px;
+}
+
+.location {
+  font-size: 13px;
+  color: #777;
+  margin-bottom: 6px;
+}
+
+/* TAGS */
+.card-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+  margin-bottom: 8px;
+}
+
+.card-tags span {
+  background: #f1f1f1;
+  font-size: 12px;
+  padding: 3px 6px;
+  border-radius: 6px;
+  text-transform: capitalize;
+  background-color: rgba(0, 0, 0, 0.05);
+  /* light tint in light mode */
+  color: #333;
+  /* text color */
+}
+
+.dark .card-tags span {
+  background-color: rgba(255, 255, 255, 0.1);
+  /* slight tint in dark mode */
+  color: #eee;
+}
+
+/* PRICE */
+.price {
+  font-weight: 600;
+  margin-bottom: 6px;
+}
+
+/* VIEW DETAILS BUTTON */
+.card-content button {
+  margin-top: auto;
+  /* pushes button to bottom */
+  width: 100%;
+  padding: 8px;
+  background: #ff7f11;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.card-content button:hover {
+  background: #ff9b4d;
+}

@@ -1,0 +1,20 @@
+{
+  "short_name": "Cravelt",
+  "name": "Cravelt - Discover Restaurants & Cafes",
+  "icons": [
+    {
+      "src": "logo.jpeg",
+      "type": "image/png",
+      "sizes": "192x192"
+    },
+    {
+      "src": "logo.jpeg",
+      "type": "image/png",
+      "sizes": "512x512"
+    }
+  ],
+  "start_url": ".",
+  "display": "standalone",
+  "theme_color": "#ff9800",
+  "background_color": "#ffffff"
+}

@@ -1,0 +1,31 @@
+.header {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  padding: 20px 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: white;
+  z-index: 10;
+}
+
+.logo h1 {
+  color: #f44336;
+  margin: 0;
+}
+
+.logo p {
+  margin: 0;
+  font-size: 14px;
+}
+
+.profile-icon {
+  background: white;
+  color: black;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+}
