@@ -16,8 +16,8 @@ connectDB();
 let db;
 (async () => {
   try {
-    const client = await MongoClient.connect("mongodb://127.0.0.1:27017", {
-      useUnifiedTopology: true,
+    const client = await MongoClient.connect(process.env.MONGODB_URI, {
+    useUnifiedTopology: true,
     });
     db = client.db("cravelt"); // your database name
     console.log("Connected to MongoDB ✅");
@@ -29,7 +29,7 @@ let db;
 // ====== CORS CONFIG ======
 app.use(
   cors({
-    origin: "http://localhost:3000", // frontend origin
+    origin: process.env.FRONTEND_URL || "http://localhost:3000", // frontend origin
     methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
     allowedHeaders: ["Content-Type", "Authorization"],
     credentials: true, // allow cookies if needed

@@ -1,7 +1,7 @@
 const axios = require("axios");
 
 // Your backend endpoint
-const API_URL = "http://127.0.0.1:5000/api/restaurants";
+const API_URL = process.env.API_URL || "http://127.0.0.1:5000/api/restaurants";
 
 // aiSearch function from your aisearch.ts
 function aiSearch(query, restaurants) {
