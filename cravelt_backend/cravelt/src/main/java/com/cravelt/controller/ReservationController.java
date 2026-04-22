@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.cravelt.model.Reservation;
+import com.cravelt.service.EmailService;
 import com.cravelt.service.ReservationService;
 
 @RestController
@@ -23,7 +24,8 @@ public class ReservationController {
 
     @Autowired
     private ReservationService reservationService;
-
+    @Autowired
+    private EmailService emailService;
     // ✅ GET
     @GetMapping
     public List<Map<String, Object>> getAllReservations() {
@@ -32,14 +34,25 @@ public class ReservationController {
 
     // ✅ POST (THIS FIXES YOUR ERROR)
     @PostMapping
-    public Reservation createReservation(@RequestBody Reservation reservation) {
+    @PostMapping
+public Reservation createReservation(@RequestBody Reservation reservation) {
     Reservation savedReservation = reservationService.saveReservation(reservation);
-    
-     Reservation confirmed = reservationService.confirmReservation(savedReservation.getId());
+    Reservation confirmed = reservationService.confirmReservation(savedReservation.getId());
 
-        return confirmed; // returns reservation with CONFIRMED status
-    }
+    // ✅ Send confirmation email
+    emailService.sendEmail(
+        confirmed.getEmail(),
+        "Reservation Confirmed at " + confirmed.getRestaurantId(),
+        "Hi " + confirmed.getName() + ",\n\n" +
+        "Your table has been booked! 🎉\n\n" +
+        "Date: " + confirmed.getDate() + "\n" +
+        "Time: " + confirmed.getTime() + "\n" +
+        "Guests: " + confirmed.getGuests() + "\n\n" +
+        "Thank you for choosing Cravelt!"
+    );
 
+    return confirmed;
+}
     // ✅ CONFIRM
     @PutMapping("/{id}/confirm")
     public Reservation confirm(@PathVariable String id) {

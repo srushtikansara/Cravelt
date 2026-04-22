@@ -48,8 +48,9 @@
   border: 1px solid #ddd;
   font-size: 0.95rem;
   transition: 0.2s;
+  color: #333;           /* add this */
+  background: #fff;      /* add this */
 }
-
 .booktable-form input:focus,
 .booktable-form textarea:focus {
   border-color: #4f46e5; /* modern blue accent */
