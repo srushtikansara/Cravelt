@@ -291,7 +291,7 @@ const getAmenityIcon = (item) => {
 
       <div className="qr-box">
         <QRCodeCanvas
-          value={`http://${FRONTEND_URL}/menu/${restaurant.id}`}
+          value={`https://${FRONTEND_URL}/menu/${restaurant.id}`}
           size={180}
           level="H"
           includeMargin={true}
