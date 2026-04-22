@@ -15,7 +15,7 @@ import com.cravelt.dto.DietaryUpdateRequest;
 import com.cravelt.model.Restaurant;
 import com.cravelt.repository.RestaurantRepository;
 import com.cravelt.service.RestaurantService;
-@CrossOrigin(origins = "${FRONTEND_URL}")
+@CrossOrigin(origins = "${frontend.url}")
 @RestController
 @RequestMapping("/api/restaurants")
 public class RestaurantController {

@@ -17,7 +17,7 @@ import com.cravelt.repository.ReviewRepository;
 import com.cravelt.repository.UserRepository;
 @RestController
 @RequestMapping("/api/reviews")
-@CrossOrigin(origins = "${FRONTEND_URL}")
+@CrossOrigin(origins = "${frontend.url}")
 public class ReviewController {
     
     @Autowired 
