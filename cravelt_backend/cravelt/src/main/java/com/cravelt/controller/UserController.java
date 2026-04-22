@@ -22,7 +22,7 @@ import com.cravelt.repository.UserRepository;
 
 @RestController
 @RequestMapping("/api/users")
-@CrossOrigin(origins = "http://localhost:3000",
+@CrossOrigin(origins = "${FRONTEND_URL}",
             allowedHeaders = "*",
             methods={RequestMethod.POST,RequestMethod.GET,RequestMethod.PUT,RequestMethod.DELETE}
             )

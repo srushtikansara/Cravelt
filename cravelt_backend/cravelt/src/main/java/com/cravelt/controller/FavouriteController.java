@@ -22,7 +22,7 @@ import com.cravelt.repository.UserRepository;
 
 @RestController
 @RequestMapping("/api/favourites")
-@CrossOrigin(origins = "http://localhost:3000")
+@CrossOrigin(origins = "${FRONTEND_URL}")
 public class FavouriteController {
 
     @Autowired

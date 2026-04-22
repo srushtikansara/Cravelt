@@ -22,6 +22,7 @@ export default function ViewDetails() {
  const [reviews, setReviews] = useState([]);
   const [rating, setRating] = useState(5);
   const [comment, setComment] = useState("");
+  const FRONTEND_URL = process.env.REACT_APP_FRONTEND_URL || "https://cravelt-nine.vercel.app";
   useEffect(() => {
   if (!id) return;
 
@@ -290,7 +291,7 @@ const getAmenityIcon = (item) => {
 
       <div className="qr-box">
         <QRCodeCanvas
-          value={`http://localhost:3000/menu/${restaurant.id}`}
+          value={`http://${FRONTEND_URL}/menu/${restaurant.id}`}
           size={180}
           level="H"
           includeMargin={true}

@@ -18,7 +18,7 @@ import com.cravelt.service.ReservationService;
 
 @RestController
 @RequestMapping("/api/reservations")
-@CrossOrigin(origins = "http://localhost:3000")
+@CrossOrigin(origins = "${FRONTEND_URL}")
 public class ReservationController {
 
     @Autowired
