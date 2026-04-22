@@ -39,7 +39,7 @@ function Profile() {
     useEffect(() => {
         if (!user) return;
 
-        fetch(`http://localhost:9999/api/reviews/user/${user.id}`)
+        fetch(`https://cravelt.onrender.com/api/reviews/user/${user.id}`)
             .then((res) => res.json())
             .then((data) => setReviews(data))
             .catch((err) => console.error("Error fetching reviews:", err));
@@ -49,7 +49,7 @@ function Profile() {
     useEffect(() => {
         if (!user) return;
 
-        fetch(`http://localhost:9999/api/favourites/user/${user.id}`)
+        fetch(`https://cravelt.onrender.com/api/favourites/user/${user.id}`)
             .then(res => res.json())
             .then(data => {
                 setFavourites(data || []);

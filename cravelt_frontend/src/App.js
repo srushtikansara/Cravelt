@@ -68,17 +68,24 @@ function AppRoutes({ searchText, setSearchText }) {
         />
 
         <Route path="/auth" element={<AuthPage />} />
+// ✅ Two separate routes
 <Route
   path="/admin/reservations"
+  element={
+    <AdminRoute>
+      <AdminReservations />
+    </AdminRoute>
+  }
+/>
+
+<Route
   path="/admin/menu/:id"
   element={
     <AdminRoute>
-      <AdminReservations /> {/* Example admin page */}
       <AdminMenu />
     </AdminRoute>
   }
 />
-        
         <Route path="*" element={<Navigate to="/" />} />
       </Routes>
     </>

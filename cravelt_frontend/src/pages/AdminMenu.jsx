@@ -13,7 +13,7 @@ export default function AdminMenu() {
   });
 
   const fetchMenu = () => {
-    fetch(`http://localhost:9999/api/menu/${restaurantId}`)
+    fetch(`https://cravelt.onrender.com/api/menu/${restaurantId}`)
       .then((res) => res.json())
       .then((data) => setItems(data.items || []));
   };
@@ -23,7 +23,7 @@ export default function AdminMenu() {
   }, [restaurantId]);
 
   const addItem = () => {
-    fetch("http://localhost:9999/api/menu/item", {
+    fetch("https://cravelt.onrender.com/api/menu/item", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
@@ -38,7 +38,7 @@ export default function AdminMenu() {
   };
 
   const deleteItem = (id) => {
-    fetch(`http://localhost:9999/api/menu/item/${id}`, {
+    fetch(`https://cravelt.onrender.com/api/menu/item/${id}`, {
       method: "DELETE",
     }).then(() => fetchMenu());
   };

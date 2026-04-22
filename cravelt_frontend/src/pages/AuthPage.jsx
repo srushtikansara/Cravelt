@@ -37,58 +37,45 @@ function AuthPage() {
 // inside AuthPage.jsx
 
 const handleAuth = async () => {
-  console.log("BUTTON CLICKED ✅");
+  const BASE = "https://cravelt.onrender.com/api";
 
-  try {
-    const url =
-      mode === "login"
-        ? "http://localhost:9999/api/users/login"
-        : "http://localhost:9999/api/users";
+  const url = mode === "login"
+    ? `${BASE}/users/login`
+    : `${BASE}/users`;
 
-    const body =
-      mode === "login"
-        ? { email, password }
-        : { fullName: fullName, email, password };
+  const body = mode === "login"
+    ? { email, password }
+    : { fullName, email, password };
 
-    const res = await fetch(url, {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(body),
-    });
+  const res = await fetch(url, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(body),
+  });
 
-    const data = await res.json();
+  const data = await res.json();
 
-    if (!res.ok) {
-      alert(data || "Something went wrong");
-      return;
-    }
+  if (!res.ok) {
+    alert(data || "Something went wrong");
+    return;
+  }
 
-    const userData = data.user ? data.user : data;
+  const normalizedUser = {
+    id: data.id,           // ✅ direct, no data.user wrapper
+    name: data.name,
+    email: data.email,
+    foodPreferences: data.foodPreferences || [],
+  };
 
-    const normalizedUser = {
-      id: userData.id,
-      name: userData.name || userData.fullName,
-      email: userData.email,
-      foodPreferences: userData.foodPreferences || [],
-    };
+  console.log("SAVED USER:", normalizedUser); // ✅ verify id is here
 
-    console.log("USER:", normalizedUser);
+  setUser(normalizedUser);
+  localStorage.setItem("user", JSON.stringify(normalizedUser));
 
-    setUser(normalizedUser);
-    localStorage.setItem("user", JSON.stringify(normalizedUser));
-
-    // ✅ ONLY ONE NAVIGATION
-    if (normalizedUser.foodPreferences.length === 0) {
-      console.log("➡️ GO TO PREFERENCES");
-      navigate("/preferences"); // make sure route matches
-    } else {
-      console.log("➡️ GO TO DASHBOARD");
-      navigate("/dashboard");
-    }
-
-  } catch (err) {
-    console.error("ERROR:", err);
-    alert("Server error");
+  if (normalizedUser.foodPreferences.length === 0) {
+    navigate("/preferences");
+  } else {
+    navigate("/dashboard");
   }
 };
     return (

@@ -168,8 +168,26 @@ router.post("/:userId/review", async (req, res) => {
         res.status(500).json({ error: err.message });
     }
 });
+// ==================== REGISTER ROUTE ====================
+router.post("/register", async (req, res) => {
+  try {
+    const { fullName, email, password } = req.body;
 
-module.exports = router;
+    const existingUser = await User.findOne({ email });
+    if (existingUser) {
+      return res.status(400).json({ error: "Email already registered" });
+    }
+
+    const user = new User({ fullName, email, password });
+    await user.save();
+
+    res.json({ message: "User registered successfully", user });
+  } catch (err) {
+    console.error("Register error:", err);
+    res.status(500).json({ error: err.message });
+  }
+});
+
 // ==================== LOGIN ROUTE ====================
 router.post("/login", async (req, res) => {
   const { email, password } = req.body;
@@ -200,3 +218,8 @@ router.post("/login", async (req, res) => {
     res.status(500).json({ error: "Server error" });
   }
 });
+
+
+
+
+module.exports = router;

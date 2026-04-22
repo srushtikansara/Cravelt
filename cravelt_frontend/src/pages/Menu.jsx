@@ -25,7 +25,7 @@ export default function Menu() {
   }, []);
 
   useEffect(() => {
-    fetch(`http://localhost:9999/api/menu/${restaurantId}`)
+    fetch(`https://cravelt.onrender.com/api/menu/${restaurantId}`)
       .then((res) => res.json())
       .then((data) => setMenu(data))
       .catch((err) => console.log(err));

@@ -23,7 +23,7 @@ export default function BookTableForm({ restaurantName, onClose, restaurantId })
   console.log("Sending:", { ...form, restaurantId });
 
   try {
-    const res = await fetch("http://localhost:9999/api/reservations", {
+    const res = await fetch("https://cravelt.onrender.com/api/reservations", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({

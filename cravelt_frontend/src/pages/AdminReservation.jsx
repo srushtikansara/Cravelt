@@ -4,7 +4,7 @@ const AdminReservations = () => {
     const [reservations, setReservations] = useState([]);
 
     useEffect(() => {
-        fetch("http://localhost:9999/api/reservations")
+        fetch("https://cravelt.onrender.com/api/reservations")
             .then(res => res.json())
             .then(data =>  {
                 console.log("DATA:", data);
@@ -15,7 +15,7 @@ const AdminReservations = () => {
 
     // ✅ DELETE
     const handleDelete = (id) => {
-        fetch(`http://localhost:9999/api/reservations/${id}`, {
+        fetch(`https://cravelt.onrender.com/api/reservations/${id}`, {
             method: "DELETE",
         }).then(() => {
             setReservations(reservations.filter((r) => r._id !== id));
@@ -24,7 +24,7 @@ const AdminReservations = () => {
 
     // ✅ CONFIRM
     const handleConfirm = (id) => {
-        fetch(`http://localhost:9999/api/reservations/${id}/confirm`, {
+        fetch(`https://cravelt.onrender.com/api/reservations/${id}/confirm`, {
             method: "PUT",
         })
         .then((res) => res.json())

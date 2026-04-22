@@ -25,7 +25,7 @@ export default function ViewDetails() {
   useEffect(() => {
   if (!id) return;
 
-  fetch(`http://localhost:9999/api/reviews/${id}`)
+  fetch(`https://cravelt.onrender.com/api/reviews/${id}`)
     .then((res) => res.json())
     .then((data) => setReviews(data))
     .catch(console.error);
@@ -65,7 +65,7 @@ const handleReviewSubmit = async () => {
       rating: rating,
       date: new Date().toLocaleDateString()
     };
-    const res = await fetch("http://localhost:9999/api/reviews", {
+    const res = await fetch("https://cravelt.onrender.com/api/reviews", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

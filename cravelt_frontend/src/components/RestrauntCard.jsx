@@ -1,6 +1,6 @@
 import PropTypes from "prop-types";
 import "./RestaurantCard.css";
-import { use, useState } from "react";
+//import { use, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useApp } from "../contexts/AppContext"; // ✅ USE CONTEXT
 import Toast from "../components/CustomToast"; // ✅ IMPORT TOAST
@@ -45,11 +45,7 @@ const isFavourite =
 
   return (
     <>
-    {toast && (
-    
-    <Toast message={toast} />
- 
-)}
+   
     <div className="relative card bg-white dark:bg-gray-800 shadow-lg rounded-xl overflow-hidden transform transition-all duration-300 ease-in-out hover:scale-105 hover:-translate-y-1 hover:shadow-2xl cursor-pointer">
 
       {/* IMAGE */}
@@ -76,10 +72,7 @@ const isFavourite =
               toast.success("Added to favourites ❤️");
             }
 
-            toggleFavourite({
-              id: id,
-              name: name,
-            });
+           toggleFavourite({ restaurantId: id, name: name })
           }}
         >
           <span style={{ color: isFavourite ? "red" : "gray" }}>
