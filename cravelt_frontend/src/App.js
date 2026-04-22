@@ -18,7 +18,7 @@ import AdminRoute from "./components/AdminRoutes";
 import {Toaster } from "react-hot-toast";
 
 function AppRoutes({ searchText, setSearchText }) {
-  const [role, setRole] = useState("user");
+  
   const { user } = useApp();
   const location = useLocation(); // ✅ added
 
@@ -68,7 +68,7 @@ function AppRoutes({ searchText, setSearchText }) {
         />
 
         <Route path="/auth" element={<AuthPage />} />
-// ✅ Two separate routes
+{/* Two separate routes */}
 <Route
   path="/admin/reservations"
   element={
@@ -99,7 +99,7 @@ function App() {
     <ThemeProvider>
   
       <AppProvider>
-        <Toaster position="bottom-right" /> {/* Example toast */}
+        <Toaster position="bottom-right" /> 
         <AppRoutes
           searchText={searchText}
           setSearchText={setSearchText}
