@@ -6,7 +6,7 @@ const AppContext = createContext();
 
 // ✅ Provider
 function AppProvider({ children }) {
-  const API_URL = "https://cravelt.onrender.com/api";
+  const API_URL = process.env.REACT_APP_API_URL || "https://cravelt.onrender.com/api";
 
   const [restaurants, setRestaurants] = useState(restaurantData);
   const [user, setUser] = useState(null);
