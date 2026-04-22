@@ -58,7 +58,11 @@ export default function BookTableForm({ restaurantName, onClose, restaurantId })
     alert("Reservation failed. Please try again.");
   }
 };
-
+const inputStyle = {
+  color: "#333",
+  backgroundColor: "#fff",
+  WebkitTextFillColor: "#333"
+};
   return (
     <div className="booktable-overlay">
       <div className="booktable-modal">
@@ -67,51 +71,12 @@ export default function BookTableForm({ restaurantName, onClose, restaurantId })
           <button className="close-btn" onClick={onClose}><X /></button>
         </div>
         <form className="booktable-form" onSubmit={handleSubmit}>
-          <input
-            type="text"
-            name="name"
-            placeholder="Your Name"
-            value={form.name}
-            onChange={handleChange}
-            required
-          />
-          <input
-            type="email"
-            name="email"
-            placeholder="Email"
-            value={form.email}
-            onChange={handleChange}
-            required
-          />
-          <input
-            type="number"
-            name="guests"
-            placeholder="Guests"
-            value={form.guests}
-            onChange={handleChange}
-            min="1"
-            required
-          />
-          <input
-            type="date"
-            name="date"
-            value={form.date}
-            onChange={handleChange}
-            required
-          />
-          <input
-            type="time"
-            name="time"
-            value={form.time}
-            onChange={handleChange}
-            required
-          />
-          <textarea
-            name="request"
-            placeholder="Special requests?"
-            value={form.request}
-            onChange={handleChange}
-          />
+          <input type="text" name="name" style={inputStyle} placeholder="Your Name" value={form.name} onChange={handleChange} required />
+<input type="email" name="email" style={inputStyle} placeholder="Email" value={form.email} onChange={handleChange} required />
+<input type="number" name="guests" style={inputStyle} placeholder="Number of Guests" value={form.guests} onChange={handleChange} min="1" required />
+<input type="date" name="date" style={inputStyle} value={form.date} onChange={handleChange} required />
+<input type="time" name="time" style={inputStyle} value={form.time} onChange={handleChange} required />
+<textarea name="request" style={inputStyle} placeholder="Special requests?" value={form.request} onChange={handleChange} />
            <button type="submit" className="submit-btn">Book Table</button>
       
         </form>
