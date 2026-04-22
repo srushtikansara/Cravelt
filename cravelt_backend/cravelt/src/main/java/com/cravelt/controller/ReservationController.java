@@ -34,7 +34,7 @@ public class ReservationController {
 
     // ✅ POST (THIS FIXES YOUR ERROR)
     @PostMapping
-    @PostMapping
+
 public Reservation createReservation(@RequestBody Reservation reservation) {
     Reservation savedReservation = reservationService.saveReservation(reservation);
     Reservation confirmed = reservationService.confirmReservation(savedReservation.getId());

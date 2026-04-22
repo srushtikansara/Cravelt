@@ -112,7 +112,7 @@ export default function BookTableForm({ restaurantName, onClose, restaurantId })
             value={form.request}
             onChange={handleChange}
           />
-           <button type="submit">Book Table</button>
+           <button type="submit" className="submit-btn">Book Table</button>
       
         </form>
          {message && <p style={{ marginTop: "10px" }}>{message}</p>}
