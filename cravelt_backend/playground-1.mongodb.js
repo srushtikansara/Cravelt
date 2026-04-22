@@ -1,6 +1,5 @@
 use("cravelt");
 
-// साफ करने के लिए (optional)
 db.users.deleteMany({});
 db.reviews.deleteMany({});
 db.favourites.deleteMany({});
