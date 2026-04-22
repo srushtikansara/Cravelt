@@ -9,8 +9,8 @@ import jakarta.annotation.PostConstruct;
 @SpringBootApplication
 public class CraveltApplication {
 
-    @Value("${spring.data.mongodb.uri}")  // ← add this
-    private String mongoUri;              // ← add this
+	@Value("${spring.mongodb.uri}")
+	private String mongoUri;             // ← add this
 
     public static void main(String[] args) {
         SpringApplication.run(CraveltApplication.class, args);
