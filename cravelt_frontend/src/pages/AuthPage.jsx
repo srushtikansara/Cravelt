@@ -60,12 +60,13 @@ const handleAuth = async () => {
     return;
   }
 
-  const normalizedUser = {
-    id: data.id,           // ✅ direct, no data.user wrapper
-    name: data.name,
-    email: data.email,
-    foodPreferences: data.foodPreferences || [],
-  };
+const normalizedUser = {
+  id: data.id,
+  name: data.name,
+  email: data.email,
+  foodPreferences: data.foodPreferences || [],
+  role: data.role || (data.email === "admin123@gmail.com" ? "admin" : "user"), // ✅ add this
+};
 
   console.log("SAVED USER:", normalizedUser); // ✅ verify id is here
 
