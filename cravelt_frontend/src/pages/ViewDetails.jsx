@@ -257,8 +257,8 @@ const getAmenityIcon = (item) => {
     <div className="info-grid">
       <div><strong>🍽 Lunch:</strong> {restaurant.lunch || "Available"}</div>
       <div><strong>🌙 Dinner:</strong> {restaurant.dinner || "Available"}</div>
-      <div><strong>🚚 Home Delivery:</strong> {restaurant.homeDelivery ? "Yes" : "No"}</div>
-      <div><strong>🥡 Takeaway:</strong> {restaurant.takeaway ? "Yes" : "No"}</div>
+      <div><strong>🚚 Home Delivery:</strong> {restaurant.amenities?.includes("Delivery") ? "Yes" : "No"}</div>
+<div><strong>🥡 Takeaway:</strong> {restaurant.amenities?.includes("Takeaway") ? "Yes" : "No"}</div>
       <div><strong>🥗 Vegetarian:</strong> {restaurant.dietary?.includes("veg") ? "Yes" : "No"}</div>
     </div>
 

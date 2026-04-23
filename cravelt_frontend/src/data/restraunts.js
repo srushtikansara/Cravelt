@@ -577,7 +577,7 @@ export const restaurants = [
   {
     id: "26",
     name: "Jani Locho",
-    image: janilocho,
+    image:janilocho,
     rating: 4.6,
     googleRating: 4.5,
     category: "Gujarati",
