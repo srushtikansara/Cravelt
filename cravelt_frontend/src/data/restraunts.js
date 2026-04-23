@@ -36,7 +36,7 @@ import street3 from "../assets/street3.jpeg";
 
 import ashkulfi from "../assets/ashkulfi.jpeg";
 import street5 from "../assets/street5.jpeg";
-import janilocho from "../assets/janilocho.jpeg";
+import janilocho from "../assets/jaanilocho.jpeg";
 import surat1 from "../assets/surat1.jpeg";
 import surat2 from "../assets/surat2.jpeg";
 import surat5 from "../assets/surat5.jpg";
