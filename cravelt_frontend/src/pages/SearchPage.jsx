@@ -143,19 +143,22 @@ console.log("VALUE:", restaurants);
             >
                 <h2>Nearby Restaurants</h2>
 
-                <input
-                    type="text"
-                    placeholder="Search..."
-                    value={searchTerm}
-                    onChange={(e) => setSearchTerm(e.target.value)}
-                    style={{
-                        width: "100%",
-                        padding: "10px",
-                        marginBottom: "10px",
-                        borderRadius: "6px",
-                        border: "1px solid #ccc",
-                    }}
-                />
+               <input
+  type="text"
+  placeholder="Search..."
+  value={searchTerm}
+  onChange={(e) => setSearchTerm(e.target.value)}
+  style={{
+    width: "100%",
+    padding: "10px",
+    marginBottom: "10px",
+    borderRadius: "6px",
+    border: "1px solid #ccc",
+    color: "#333",              // ✅ add this
+    backgroundColor: "#fff",   // ✅ add this
+    fontSize: "1rem",          // ✅ add this
+  }}
+/>
 
                 {filteredRestaurants.map((r) => (
                     <div
