@@ -76,6 +76,12 @@ function AIAdvisor() {
       );
       return { text: "💑 Romantic places:", data: formatRestaurants(data) };
     }
+    if (msg.includes("south indian")) {
+      const data = restaurants.filter((r) =>
+        r.cuisine?.some((c) => c.toLowerCase().includes("south indian"))
+      );
+      return { text: "🍛 South Indian cuisine:", data: formatRestaurants(data) };
+    }
 
     if (msg.includes("recommend") && user?.foodPreferences?.length) {
       const data = restaurants.filter((r) =>

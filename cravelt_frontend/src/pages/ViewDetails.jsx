@@ -259,7 +259,7 @@ const getAmenityIcon = (item) => {
       <div><strong>🌙 Dinner:</strong> {restaurant.dinner || "Available"}</div>
       <div><strong>🚚 Home Delivery:</strong> {restaurant.homeDelivery ? "Yes" : "No"}</div>
       <div><strong>🥡 Takeaway:</strong> {restaurant.takeaway ? "Yes" : "No"}</div>
-      <div><strong>🥗 Vegetarian:</strong> {restaurant.vegetarian ? "Yes" : "No"}</div>
+      <div><strong>🥗 Vegetarian:</strong> {restaurant.dietary?.includes("veg") ? "Yes" : "No"}</div>
     </div>
 
     {/* AMENITIES */}
