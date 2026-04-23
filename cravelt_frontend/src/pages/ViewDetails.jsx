@@ -119,7 +119,34 @@ const getAmenityIcon = (item) => {
       return "✔️";
   }
 };
+const parseHours = (hours) => {
+  if (!hours) return { lunch: false, dinner: false };
+  
+  const [openStr, closeStr] = hours.split(" - ");
+  
+  const toMinutes = (timeStr) => {
+    if (!timeStr) return 0;
+    const [time, period] = timeStr.trim().split(" ");
+    let [h, m] = time.split(":").map(Number);
+    if (period === "PM" && h !== 12) h += 12;
+    if (period === "AM" && h === 12) h = 0;
+    return h * 60 + (m || 0);
+  };
 
+  const open = toMinutes(openStr);
+  const close = toMinutes(closeStr);
+  const lunchStart = 12 * 60; // 12:00 PM
+  const lunchEnd = 15 * 60;   // 3:00 PM
+  const dinnerStart = 19 * 60; // 7:00 PM
+  const dinnerEnd = 23 * 60;   // 11:00 PM
+
+  return {
+    lunch: open <= lunchStart && close >= lunchEnd,
+    dinner: open <= dinnerStart && close >= dinnerEnd,
+  };
+};
+
+const { lunch, dinner } = parseHours(restaurant.hours);
   return (
     <div className="view-details-page">
 
@@ -255,8 +282,8 @@ const getAmenityIcon = (item) => {
     <h2 className="section-title mt-4">📌 More Info</h2>
 
     <div className="info-grid">
-      <div><strong>🍽 Lunch:</strong> {restaurant.lunch || "Available"}</div>
-      <div><strong>🌙 Dinner:</strong> {restaurant.dinner || "Available"}</div>
+      <div><strong>🍽 Lunch:</strong> {lunch ? "Available" : "Not Available"}</div>
+<div><strong>🌙 Dinner:</strong> {dinner ? "Available" : "Not Available"}</div>
       <div><strong>🚚 Home Delivery:</strong> {restaurant.amenities?.includes("Delivery") ? "Yes" : "No"}</div>
 <div><strong>🥡 Takeaway:</strong> {restaurant.amenities?.includes("Takeaway") ? "Yes" : "No"}</div>
       <div><strong>🥗 Vegetarian:</strong> {restaurant.dietary?.includes("veg") ? "Yes" : "No"}</div>
