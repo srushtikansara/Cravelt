@@ -16,10 +16,9 @@ function AuthPage() {
     const { user, setFavourites, setUser } = useApp();
     const navigate = useNavigate();
     const location = useLocation();
-    const bg1 = "https://unsplash.com/photos/pizza-on-brown-wooden-table-40OJLYVWeeM";
-    const bg2 = "https://unsplash.com/photos/sliced-strawberries-in-clear-glass-jar-with-cream-lK1Q5RyD6tc";
-    const bg3 = "https://unsplash.com/photos/shallow-focus-photography-of-coffee-late-in-mug-on-table-zUNs99PGDg0";
-    // ✅ safer fallback
+    const bg1 = "https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=1600";
+const bg2 = "https://images.unsplash.com/photo-1551024601-bec78aea704b?auto=format&fit=crop&w=1600";
+const bg3 = "https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?auto=format&fit=crop&w=1600";
     const from = location.state?.from?.pathname || "/";
 
     // Background slideshow

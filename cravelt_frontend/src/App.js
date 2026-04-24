@@ -70,14 +70,11 @@ function AppRoutes({ searchText, setSearchText }) {
         <Route path="/auth" element={<AuthPage />} />
 
 
-<Route
-  path="/admin/dashboard"
-  element={
-    <AdminRoute>
-      <AdminDashboard />
-    </AdminRoute>
-  }
-/>
+<Route path="/admin" element={
+  <AdminRoute>
+    <AdminDashboard />
+  </AdminRoute>
+} />
         <Route path="*" element={<Navigate to="/" />} />
       </Routes>
     </>
