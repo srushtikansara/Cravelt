@@ -10,6 +10,11 @@ import { useApp } from "../contexts/AppContext";
 function Home() {
   const { role, setRole } = useApp();
   const navigate = useNavigate();
+  const dessert = "https://images.unsplash.com/photo-1589301760014-d929f3979dbc?auto=format&fit=crop&w=1600";
+  const pasta = "https://images.unsplash.com/photo-1555949258-eb67b1ef0ceb?auto=format&fit=crop&w=1600";
+  const indianFood = "https://images.unsplash.com/photo-1585937421612-70a008356fbe?auto=format&fit=crop&w=1600";
+  const chineseFood = "https://images.unsplash.com/photo-1563245372-f21724e3856d?auto=format&fit=crop&w=1600";
+  const foodies = "https://images.unsplash.com/photo-1567337710282-00832b415979?auto=format&fit=crop&w=1600";
   const [location, setLocation] = useState(null);
   const [toast, setToast] = useState("");
   const { restaurants, user } = useApp();
@@ -23,12 +28,7 @@ function Home() {
     return (value.name || "").toLowerCase();
   return "";
 };
-const dessert ="https://www.istockphoto.com/photo/gulab-jamun-gm668147754-121993711?utm_source=unsplash&utm_medium=affiliate&utm_campaign=srp_photos_bottom&utm_content=https%3A%2F%2Funsplash.com%2Fs%2Fphotos%2Findian-dessert&utm_term=indian+dessert%3A%3Aaffiliate-layout-optim%3Aa%3Aafc469ce-4903-4f78-a820-270a8d63585f";
-const pasta = "https://unsplash.com/photos/a-plate-of-ravioli-with-spinach-and-cheese-xbfIYhNSKbk";
-const indianFood = "https://www.istockphoto.com/photo/indian-food-curry-butter-chicken-palak-paneer-chiken-tikka-biryani-vegetable-curry-gm1127560680-297227440?utm_source=unsplash&utm_medium=affiliate&utm_campaign=srp_photos_bottom&utm_content=https%3A%2F%2Funsplash.com%2Fs%2Fphotos%2Findian-food&utm_term=indian+food%3A%3Aaffiliate-layout-optim%3Aa%3A5f6c15d6-b035-40d6-af87-0a8ccd43880e";
-const chineseFood = "https://unsplash.com/photos/a-bowl-of-dumplings-g7ue2JBhDro";
-const foodies = "https://www.istockphoto.com/photo/group-of-south-indian-food-like-masala-dosa-uttapam-idli-idly-wada-vada-sambar-appam-gm1024558722-274905891?utm_source=unsplash&utm_medium=affiliate&utm_campaign=srp_photos_bottom&utm_content=https%3A%2F%2Funsplash.com%2Fs%2Fphotos%2Findian-food&utm_term=indian+food%3A%3Aaffiliate-layout-optim%3Aa%3A4cf70dc8-10a0-4154-8b34-cd3c2921ba58";
-  // Slideshow
+
   const images = [dessert, pasta, indianFood, chineseFood, foodies];
   const [current, setCurrent] = useState(0);
 

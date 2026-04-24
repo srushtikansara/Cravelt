@@ -27,8 +27,10 @@ export default function BookTableForm({ restaurantName, onClose, restaurantId })
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
-        ...form,
-        restaurantId: restaurantId,
+          ...form,
+          restaurantId: restaurantId,
+          restaurantName: restaurant.name, // ✅ make sure this is included
+ 
       }),
     });
 
