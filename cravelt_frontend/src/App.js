@@ -4,7 +4,7 @@ import { useState } from "react";
 import { AppProvider, useApp } from "./contexts/AppContext";
 import { ThemeProvider } from "./contexts/ThemeContext";
 import { Navigation } from "./components/Navigation";
-import AdminMenu from "./pages/AdminMenu";
+import AdminDashboard from "./pages/AdminDashboard";
 import AuthPage from "./pages/AuthPage";
 import HomePage from "./pages/Home";
 import SearchPage from "./pages/SearchPage";
@@ -68,21 +68,13 @@ function AppRoutes({ searchText, setSearchText }) {
         />
 
         <Route path="/auth" element={<AuthPage />} />
-{/* Two separate routes */}
-<Route
-  path="/admin/reservations"
-  element={
-    <AdminRoute>
-      <AdminReservations />
-    </AdminRoute>
-  }
-/>
+
 
 <Route
-  path="/admin/menu/:id"
+  path="/admin/dashboard"
   element={
     <AdminRoute>
-      <AdminMenu />
+      <AdminDashboard />
     </AdminRoute>
   }
 />

@@ -271,18 +271,19 @@ const removePreference = (item) => {
                         </h3>
 
                         <Input
-                            value={name}
-                            onChange={(e) => setName(e.target.value)}
-                            readOnly={!editing}
-                            className="bg-black/40 text-white"
-                        />
+    value={name}
+    onChange={(e) => setName(e.target.value)}
+    readOnly={!editing}
+    className="bg-black/40 text-white"
+    style={{ color: "#fff", backgroundColor: "#1a1a1a" }}
+/>
 
-                        <Input
-                            value={user.email}
-                            readOnly
-                            className="bg-black/40 text-white mt-3"
-                        />
-
+<Input
+    value={user.email}
+    readOnly
+    className="bg-black/40 text-white mt-3"
+    style={{ color: "#fff", backgroundColor: "#1a1a1a" }}
+/>
                         <Button
                             onClick={handleEditSave}
                             className="w-full mt-4 bg-orange-500"
