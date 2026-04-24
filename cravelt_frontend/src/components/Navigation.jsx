@@ -97,7 +97,24 @@ export function Navigation() {
                                 </Link>
 
 
-                            
+                                        // In the Right Section, before the theme toggle button:
+
+{role === "admin" && (
+    <>
+        <button
+            onClick={() => navigate("/admin")}
+            className="bg-orange-500 text-white px-4 py-2 rounded-lg font-semibold text-sm hover:bg-orange-600 transition"
+        >
+            Admin Menu
+        </button>
+        <button
+            onClick={() => navigate("/admin/reservations")}
+            className="bg-purple-500 text-white px-4 py-2 rounded-lg font-semibold text-sm hover:bg-purple-600 transition"
+        >
+            Reservations
+        </button>
+    </>
+)}
                                 <button
                                     onClick={() => {
                                          localStorage.removeItem("user");

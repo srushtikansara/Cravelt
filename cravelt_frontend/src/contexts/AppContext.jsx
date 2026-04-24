@@ -34,11 +34,12 @@ useEffect(() => {
     setUser(normalizedUser);
     setUserId(normalizedUser.id || normalizedUser._id); // ✅ store once
 
-    if (normalizedUser.email === "admin123@gmail.com" || normalizedUser.role === "admin") {
-      setRole("admin");
-    } else {
-      setRole("user");
-    }
+// Safer — don't trust role from localStorage
+if (normalizedUser.email === "admin123@gmail.com") {
+  setRole("admin");
+} else {
+  setRole("user");
+}
   }
   setLoading(false);
 }, []);
