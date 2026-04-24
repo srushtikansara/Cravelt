@@ -8,6 +8,7 @@ import { motion } from "framer-motion";
 export function FoodPreferences() {
     const navigate = useNavigate();
     const { user, setUser } = useApp();
+    const { role } = useApp();
 
     
    const [selectedPreferences, setSelectedPreferences] = useState(
