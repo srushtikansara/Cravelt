@@ -9,12 +9,16 @@ export function FoodPreferences() {
     const navigate = useNavigate();
     const { user, setUser } = useApp();
 
-    // ✅ SAFE INIT (prevents crash if user null)
+    
    const [selectedPreferences, setSelectedPreferences] = useState(
     new Set(user?.foodPreferences || [])
 );
-
-    // 🔥 If no user → redirect to login
+    useEffect(() => {
+  if (role === "admin") {
+    navigate("/admin");
+  }
+}, [role]);
+   
     useEffect(() => {
         if (!user) {
             navigate("/login");

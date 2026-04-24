@@ -3,9 +3,6 @@ import { useNavigate, useLocation } from "react-router-dom";
 import { useApp } from "../contexts/AppContext";
 import "./AuthPage.css";
 import logo from "../assets/logo.jpeg";
-import bg1 from "../assets/bg_dessert.jpeg";
-import bg2 from "../assets/pizza.jpeg";
-import bg3 from "../assets/coffeee.jpeg";
 
 function AuthPage() {
     const [mode, setMode] = useState("login");
@@ -19,7 +16,9 @@ function AuthPage() {
     const { user, setFavourites, setUser } = useApp();
     const navigate = useNavigate();
     const location = useLocation();
-
+    const bg1 = "https://unsplash.com/photos/pizza-on-brown-wooden-table-40OJLYVWeeM";
+    const bg2 = "https://unsplash.com/photos/sliced-strawberries-in-clear-glass-jar-with-cream-lK1Q5RyD6tc";
+    const bg3 = "https://unsplash.com/photos/shallow-focus-photography-of-coffee-late-in-mug-on-table-zUNs99PGDg0";
     // ✅ safer fallback
     const from = location.state?.from?.pathname || "/";
 
@@ -73,11 +72,14 @@ const normalizedUser = {
   setUser(normalizedUser);
   localStorage.setItem("user", JSON.stringify(normalizedUser));
 
-  if (normalizedUser.foodPreferences.length === 0) {
+  // With this:
+if (normalizedUser.email === "admin123@gmail.com" || normalizedUser.role === "admin") {
+    navigate("/admin");
+} else if (normalizedUser.foodPreferences.length === 0) {
     navigate("/preferences");
-  } else {
-    navigate("/dashboard");
-  }
+} else {
+    navigate("/");
+}
 };
     return (
         <div className={`auth-page ${theme}`}>
