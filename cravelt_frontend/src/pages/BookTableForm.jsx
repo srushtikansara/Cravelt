@@ -29,7 +29,7 @@ export default function BookTableForm({ restaurantName, onClose, restaurantId })
       body: JSON.stringify({
           ...form,
           restaurantId: restaurantId,
-          restaurantName: restaurant.name, // ✅ make sure this is included
+          restaurantName: restaurantName, 
  
       }),
     });
