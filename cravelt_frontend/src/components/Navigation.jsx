@@ -95,22 +95,7 @@ export function Navigation() {
                                     <span>{user?.name || "User"}</span>
                                       <span>❤️ {favourites?.length || 0}</span>
                                 </Link>
-                                   {role === "admin" && (
-  <div className="flex gap-2">
-    <button
-      onClick={() => navigate("/admin/menu/1")}
-      className="bg-orange-500 text-white px-4 py-2 rounded-lg hover:bg-orange-600 transition"
-    >
-      Admin Menu
-    </button>
-    <button
-      onClick={() => navigate("/admin/reservations")}
-      className="bg-purple-500 text-white px-4 py-2 rounded-lg hover:bg-purple-600 transition"
-    >
-      Reservations
-    </button>
-  </div>
-)}
+
 
                             
                                 <button
