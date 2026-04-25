@@ -113,14 +113,21 @@ export default function AdminDashboard() {
 
 const handleEdit = (r) => {
     setForm({
-      name: r.name || "", location: r.location || "", city: r.city || "",
-      cuisine: r.cuisine || [], ambience: r.ambience || [],
-      rating: r.rating || "", priceForTwo: r.priceForTwo || "",
-      image: r.image || "", veg: r.veg || false,
-      dietary: r.dietary || [], description: r.description || "",
-      openTime: r.openTime || "", closeTime: r.closeTime || "",
+      name: r.name || "", 
+      location: r.location || r.address || "", 
+      city: r.city || "",
+      cuisine: r.cuisine || [], 
+      ambience: r.ambience || [],
+      rating: r.rating || "", 
+      priceForTwo: r.priceForTwo || "",
+      image: r.image || "", 
+      veg: r.veg || false,
+      dietary: r.dietary || [], 
+      description: r.description || "",
+      openTime: r.openTime || "", 
+      closeTime: r.closeTime || "",
     });
-    setEditId(r._id || r.id); // ✅ prefer _id over id
+    setEditId(r._id);
     setShowForm(true);
     window.scrollTo({ top: 0, behavior: "smooth" });
 };
@@ -374,7 +381,7 @@ const handleEdit = (r) => {
                         <td style={styles.td}>
                           <div style={{ display: "flex", gap: 8 }}>
                             <button style={styles.editBtn} onClick={() => handleEdit(r)}>✏️ Edit</button>
-<button style={styles.deleteBtn} onClick={() => handleDelete(r._id || r.id)}>🗑️</button>
+                            <button style={styles.deleteBtn} onClick={() => handleDelete(r._id)}>🗑️</button>
                           </div>
                         </td>
                       </tr>
