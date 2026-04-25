@@ -355,14 +355,15 @@ export default function AdminDashboard() {
                         </td>
                         <td style={{ ...styles.td, fontWeight: 600, color: "#f9fafb" }}>{r.name}</td>
                        <td style={styles.td}>{r.location || r.address || "—"}</td>
-                        <td style={styles.td}>
-  <div style={{ display: "flex", flexWrap: "wrap", gap: 4 }}>
-    {(r.cuisine || r.cuisines || []).slice(0, 2).map(c => (
-      <span key={c} style={styles.chip}>{c}</span>
-    ))}
-  </div>
-</td>
-                        <td style={styles.td}>
+                      // Cuisine — this SHOULD work, check if it's rendering
+                      <td style={styles.td}>
+                        <div style={{ display: "flex", flexWrap: "wrap", gap: 4 }}>
+                          {(r.cuisine || []).slice(0, 2).map(c => (
+                            <span key={c} style={styles.chip}>{c}</span>
+                          ))}
+                        </div>
+                      </td>
+                       <td style={styles.td}>
                           <span style={styles.rating}>⭐ {r.rating}</span>
                         </td>
                         <td style={styles.td}>₹{r.priceForTwo || "—"}</td>
