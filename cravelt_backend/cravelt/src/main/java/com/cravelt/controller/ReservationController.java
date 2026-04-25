@@ -1,4 +1,5 @@
 package com.cravelt.controller;
+
 import java.util.List;
 import java.util.Map;
 
@@ -24,35 +25,41 @@ public class ReservationController {
 
     @Autowired
     private ReservationService reservationService;
+
     @Autowired
     private EmailService emailService;
-    // ✅ GET
+
+    // ✅ GET ALL
     @GetMapping
     public List<Map<String, Object>> getAllReservations() {
         return reservationService.getAllReservations();
     }
 
-    // ✅ POST (THIS FIXES YOUR ERROR)
+    // ✅ POST - Create reservation
     @PostMapping
+    public Reservation createReservation(@RequestBody Reservation reservation) {
+        Reservation savedReservation = reservationService.saveReservation(reservation);
+        Reservation confirmed = reservationService.confirmReservation(savedReservation.getId());
 
-public Reservation createReservation(@RequestBody Reservation reservation) {
-    Reservation savedReservation = reservationService.saveReservation(reservation);
-    Reservation confirmed = reservationService.confirmReservation(savedReservation.getId());
+        // ✅ Use restaurantName instead of restaurantId in email
+        String restaurantName = confirmed.getRestaurantName() != null
+                ? confirmed.getRestaurantName()
+                : "the restaurant";
 
-    // ✅ Send confirmation email
-    emailService.sendEmail(
-        confirmed.getEmail(),
-        "Reservation Confirmed at " + confirmed.getRestaurantId(),
-        "Hi " + confirmed.getName() + ",\n\n" +
-        "Your table has been booked! 🎉\n\n" +
-        "Date: " + confirmed.getDate() + "\n" +
-        "Time: " + confirmed.getTime() + "\n" +
-        "Guests: " + confirmed.getGuests() + "\n\n" +
-        "Thank you for choosing Cravelt!"
-    );
+        emailService.sendEmail(
+            confirmed.getEmail(),
+            "Reservation Confirmed at " + restaurantName,
+            "Hi " + confirmed.getName() + ",\n\n" +
+            "Your table at " + restaurantName + " has been booked! 🎉\n\n" +
+            "📅 Date: " + confirmed.getDate() + "\n" +
+            "⏰ Time: " + confirmed.getTime() + "\n" +
+            "👥 Guests: " + confirmed.getGuests() + "\n\n" +
+            "Thank you for choosing Cravelt!"
+        );
 
-    return confirmed;
-}
+        return confirmed;
+    }
+
     // ✅ CONFIRM
     @PutMapping("/{id}/confirm")
     public Reservation confirm(@PathVariable String id) {

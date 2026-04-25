@@ -22,13 +22,13 @@ public class ReservationService {
     private RestaurantRepository restaurantRepository;
 
     @Autowired
-    private EmailService emailService; // ✅ for sending email
+    private EmailService emailService; 
      public Reservation saveReservation(Reservation reservation) {
     reservation.setStatus("PENDING"); // default
     return reservationRepository.save(reservation);
 }
     // ✅ GET ALL RESERVATIONS
-   public List<Map<String, Object>> getAllReservations() {
+  public List<Map<String, Object>> getAllReservations() {
     List<Reservation> reservations = reservationRepository.findAll();
 
     return reservations.stream().map(r -> {
@@ -38,17 +38,22 @@ public class ReservationService {
         map.put("name", r.getName());
         map.put("email", r.getEmail());
         map.put("date", r.getDate());
+        map.put("time", r.getTime());
         map.put("status", r.getStatus());
         map.put("guests", r.getGuests());
+        map.put("request", r.getRequest());
 
-        String restaurantName = "Unknown Restaurant"; // default value
+        String restaurantName = "Unknown Restaurant";
 
-        // ✅ SAFE CHECK (prevents 500 error)
-        if (r.getRestaurantId() != null && !r.getRestaurantId().isEmpty()) {
+        // ✅ First try: use saved restaurantName directly
+        if (r.getRestaurantName() != null && !r.getRestaurantName().isEmpty()) {
+            restaurantName = r.getRestaurantName();
+        }
+        // ✅ Second try: lookup by restaurantId
+        else if (r.getRestaurantId() != null && !r.getRestaurantId().isEmpty()) {
             Restaurant restaurant = restaurantRepository
                     .findById(r.getRestaurantId())
                     .orElse(null);
-
             if (restaurant != null) {
                 restaurantName = restaurant.getName();
             }

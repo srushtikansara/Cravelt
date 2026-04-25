@@ -354,21 +354,23 @@ export default function AdminDashboard() {
                             : <div style={styles.noImg}>🍽️</div>}
                         </td>
                         <td style={{ ...styles.td, fontWeight: 600, color: "#f9fafb" }}>{r.name}</td>
-                        <td style={styles.td}>{r.location}</td>
+                       <td style={styles.td}>{r.location || r.address || "—"}</td>
                         <td style={styles.td}>
-                          <div style={{ display: "flex", flexWrap: "wrap", gap: 4 }}>
-                            {(r.cuisine || []).slice(0, 2).map(c => (
-                              <span key={c} style={styles.chip}>{c}</span>
-                            ))}
-                          </div>
-                        </td>
+  <div style={{ display: "flex", flexWrap: "wrap", gap: 4 }}>
+    {(r.cuisine || r.cuisines || []).slice(0, 2).map(c => (
+      <span key={c} style={styles.chip}>{c}</span>
+    ))}
+  </div>
+</td>
                         <td style={styles.td}>
                           <span style={styles.rating}>⭐ {r.rating}</span>
                         </td>
                         <td style={styles.td}>₹{r.priceForTwo || "—"}</td>
-                        <td style={styles.td}>
-                          <span style={{ color: r.veg ? "#22c55e" : "#9ca3af" }}>{r.veg ? "🌿 Yes" : "No"}</span>
-                        </td>
+                       <td style={styles.td}>
+  <span style={{ color: (r.veg || r.dietary?.includes("veg")) ? "#22c55e" : "#9ca3af" }}>
+    {(r.veg || r.dietary?.includes("veg")) ? "🌿 Yes" : "No"}
+  </span>
+</td>
                         <td style={styles.td}>
                           <div style={{ display: "flex", gap: 8 }}>
                             <button style={styles.editBtn} onClick={() => handleEdit(r)}>✏️ Edit</button>
@@ -419,6 +421,7 @@ export default function AdminDashboard() {
   <span>📅 {r.date}</span>
   <span>⏰ {r.time}</span>
   <span>🍽️ {r.restaurantName}</span>
+  <span>📝 Special Requests</span>
 </div>
                       {r.request && <div style={styles.resRequest}>📝 {r.request}</div>}
                       <div style={styles.resActions}>

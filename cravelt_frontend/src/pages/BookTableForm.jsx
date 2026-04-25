@@ -1,8 +1,7 @@
 // src/components/BookTableForm.jsx
 import { useState } from "react";
 import { X } from "lucide-react";
-import "./BookTableForm.css"; // Make sure CSS path is correct
-
+import "./BookTableForm.css"; 
 export default function BookTableForm({ restaurantName, onClose, restaurantId }) {
   const [form, setForm] = useState({
     name: "",
