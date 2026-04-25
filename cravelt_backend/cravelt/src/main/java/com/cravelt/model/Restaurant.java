@@ -2,6 +2,7 @@ package com.cravelt.model;
 
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
@@ -9,27 +10,28 @@ import org.springframework.data.mongodb.core.mapping.Document;
 public class Restaurant {
 
     @Id
+    @JsonProperty("_id")  // ✅ this exposes _id in JSON response
     private String _id;
 
     private int id;
     private String name;
     private String location;
-    private String city;          // ✅ missing
+    private String city;
     private double rating;
-    private int priceForTwo;      // ✅ missing
-    private String image;         // ✅ missing
-    private boolean veg;          // ✅ missing
-    private String description;   // ✅ missing
-    private String openTime;      // ✅ missing
-    private String closeTime;     // ✅ missing
-    private List<String> cuisine; // ✅ was "cuisines", form sends "cuisine"
-    private List<String> ambience;// ✅ missing
+    private int priceForTwo;
+    private String image;
+    private boolean veg;
+    private String description;
+    private String openTime;
+    private String closeTime;
+    private List<String> cuisine;
+    private List<String> ambience;
     private List<String> dietary;
     private double lat;
     private double lng;
 
     // Getters & Setters
-
+    @JsonProperty("_id")  // ✅ also on getter
     public String get_id() { return _id; }
     public void set_id(String _id) { this._id = _id; }
 
