@@ -312,7 +312,7 @@ export default function AdminDashboard() {
           <div style={styles.statsGrid}>
             {[
               { label: "Total Restaurants", value: restaurants.length, icon: "🏪" },
-              { label: "Veg Only", value: restaurants.filter(r => r.veg).length, icon: "🌿" },
+              { label: "Veg Only", value: restaurants.filter(r => r.veg || r.dietary?.includes("veg")).length, icon: "🌿" },
               { label: "Avg Rating", value: (restaurants.reduce((a, r) => a + (r.rating || 0), 0) / (restaurants.length || 1)).toFixed(1), icon: "⭐" },
               { label: "Cities Covered", value: new Set(restaurants.map(r => r.city).filter(Boolean)).size, icon: "📍" },
             ].map(s => (
@@ -355,7 +355,6 @@ export default function AdminDashboard() {
                         </td>
                         <td style={{ ...styles.td, fontWeight: 600, color: "#f9fafb" }}>{r.name}</td>
                        <td style={styles.td}>{r.location || r.address || "—"}</td>
-                      // Cuisine — this SHOULD work, check if it's rendering
                       <td style={styles.td}>
                         <div style={{ display: "flex", flexWrap: "wrap", gap: 4 }}>
                           {(r.cuisine || []).slice(0, 2).map(c => (
