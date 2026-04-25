@@ -111,7 +111,7 @@ export default function AdminDashboard() {
     }
   };
 
-  const handleEdit = (r) => {
+const handleEdit = (r) => {
     setForm({
       name: r.name || "", location: r.location || "", city: r.city || "",
       cuisine: r.cuisine || [], ambience: r.ambience || [],
@@ -120,12 +120,12 @@ export default function AdminDashboard() {
       dietary: r.dietary || [], description: r.description || "",
       openTime: r.openTime || "", closeTime: r.closeTime || "",
     });
-    setEditId(r.id || r._id);
+    setEditId(r._id || r.id); // ✅ prefer _id over id
     setShowForm(true);
     window.scrollTo({ top: 0, behavior: "smooth" });
-  };
+};
 
-  const handleDelete = async (id) => {
+ const handleDelete = async (id) => {
     if (!window.confirm("Delete this restaurant?")) return;
     try {
       await fetch(`${API}/restaurants/${id}`, { method: "DELETE" });
@@ -374,7 +374,7 @@ export default function AdminDashboard() {
                         <td style={styles.td}>
                           <div style={{ display: "flex", gap: 8 }}>
                             <button style={styles.editBtn} onClick={() => handleEdit(r)}>✏️ Edit</button>
-                            <button style={styles.deleteBtn} onClick={() => handleDelete(r.id || r._id)}>🗑️</button>
+<button style={styles.deleteBtn} onClick={() => handleDelete(r._id || r.id)}>🗑️</button>
                           </div>
                         </td>
                       </tr>
