@@ -84,21 +84,36 @@ export default function AdminDashboard() {
     }));
   };
 
-  const handleSubmit = async () => {
+const handleSubmit = async () => {
     if (!form.name || !form.location) {
       showToast("Name and location are required", "error");
       return;
     }
-    const method = editId ? "PUT" : "POST";
-    const url = editId ? `${API}/restaurants/${editId}` : `${API}/restaurants`;
+
+    // ✅ Find the actual MongoDB _id from the restaurants list
+    const existingRestaurant = restaurants.find(r => 
+      (r._id && r._id === editId) || 
+      (r.name === form.name && editId)
+    );
+    const mongoId = existingRestaurant?._id || editId;
+
+    const method = mongoId ? "PUT" : "POST";
+    const url = mongoId 
+      ? `${API}/restaurants/${mongoId}` 
+      : `${API}/restaurants`;
+
     try {
       const res = await fetch(url, {
         method,
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ ...form, rating: parseFloat(form.rating) || 0, priceForTwo: parseInt(form.priceForTwo) || 0 }),
+        body: JSON.stringify({ 
+          ...form, 
+          rating: parseFloat(form.rating) || 0, 
+          priceForTwo: parseInt(form.priceForTwo) || 0 
+        }),
       });
       if (res.ok) {
-        showToast(editId ? "Restaurant updated!" : "Restaurant added!");
+        showToast(mongoId ? "Restaurant updated!" : "Restaurant added!");
         setForm(initialForm);
         setEditId(null);
         setShowForm(false);
@@ -109,7 +124,7 @@ export default function AdminDashboard() {
     } catch {
       showToast("Server error", "error");
     }
-  };
+};
 
 const handleEdit = (r) => {
     setForm({
@@ -131,17 +146,25 @@ const handleEdit = (r) => {
     setShowForm(true);
     window.scrollTo({ top: 0, behavior: "smooth" });
 };
-
- const handleDelete = async (id) => {
+const handleDelete = async (id) => {
     if (!window.confirm("Delete this restaurant?")) return;
+    
+   
+    const restaurant = restaurants.find(r => r._id === id || r.id === id || r.name === id);
+    const mongoId = restaurant?._id || id;
+    
     try {
-      await fetch(`${API}/restaurants/${id}`, { method: "DELETE" });
-      showToast("Deleted successfully");
-      fetchRestaurants();
+      const res = await fetch(`${API}/restaurants/${mongoId}`, { method: "DELETE" });
+      if (res.ok) {
+        showToast("Deleted successfully");
+        fetchRestaurants();
+      } else {
+        showToast("Delete failed", "error");
+      }
     } catch {
       showToast("Delete failed", "error");
     }
-  };
+};
 
   const filtered = restaurants.filter(r =>
     r.name?.toLowerCase().includes(search.toLowerCase()) ||
@@ -381,7 +404,7 @@ const handleEdit = (r) => {
                         <td style={styles.td}>
                           <div style={{ display: "flex", gap: 8 }}>
                             <button style={styles.editBtn} onClick={() => handleEdit(r)}>✏️ Edit</button>
-                            <button style={styles.deleteBtn} onClick={() => handleDelete(r._id)}>🗑️</button>
+                            <button style={styles.deleteBtn} onClick={() => handleDelete(r._id || r.id)}>🗑️</button>
                           </div>
                         </td>
                       </tr>
