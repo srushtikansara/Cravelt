@@ -131,15 +131,17 @@ const cuisineMatch =
   );
 
       const ambienceMatch =
-        appliedFilters.ambience.length === 0 ||
-        ambienceArr.some((a) => appliedFilters.ambience.includes(a));
+  appliedFilters.ambience.length === 0 ||
+  ambienceArr.some((a) =>
+    appliedFilters.ambience
+      .map(x => x.toLowerCase())
+      .includes(a.toLowerCase())  // ✅ add this
+  );
 
       const dietaryMatch =
   appliedFilters.dietary.length === 0 ||
   dietaryArr.some((d) =>
-    appliedFilters.dietary
-      .map(x => x.toLowerCase())
-      .includes(d.toLowerCase())
+    appliedFilters.dietary.map(x => x.toLowerCase()).includes(d.toLowerCase())
   );
 
       const priceMatch =

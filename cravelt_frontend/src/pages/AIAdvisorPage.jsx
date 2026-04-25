@@ -82,7 +82,21 @@ function AIAdvisor() {
       );
       return { text: "🍛 South Indian cuisine:", data: formatRestaurants(data) };
     }
-
+    if (msg.includes("gujarati")) {
+      const data = restaurants.filter((r) =>
+        r.cuisine?.some((c) => c.toLowerCase().includes("gujarati"))
+      );
+      return { text: "🍛 Gujarati cuisine:", data: formatRestaurants(data) };
+    }
+    const cuisines = ["indian", "continental", "italian", "chinese", "street food", "gujarati", "south indian"];
+    for (let c of cuisines) {
+      if (msg.includes(c)) {    
+        const data = restaurants.filter((r) =>
+          r.cuisine?.some((rc) => rc.toLowerCase().includes(c))
+        );
+        return { text: `🍽️ ${c.charAt(0).toUpperCase() + c.slice(1)} cuisine:`, data: formatRestaurants(data) };
+      }
+    }
     if (msg.includes("recommend") && user?.foodPreferences?.length) {
       const data = restaurants.filter((r) =>
         r.cuisine?.some((c) =>
