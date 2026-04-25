@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
 import { useApp } from "../contexts/AppContext";
+import { signInWithPopup } from "firebase/auth";
+import { auth, googleProvider } from "../firebase";
 import "./AuthPage.css";
 import logo from "../assets/logo.jpeg";
 
@@ -13,16 +15,16 @@ function AuthPage() {
     const [password, setPassword] = useState("");
     const [fullName, setFullName] = useState("");
 
-    const { user, setFavourites, setUser } = useApp();
+    const { setUser } = useApp();
     const navigate = useNavigate();
     const location = useLocation();
-    const bg1 = "https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=1600";
-const bg2 = "https://images.unsplash.com/photo-1551024601-bec78aea704b?auto=format&fit=crop&w=1600";
-const bg3 = "https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?auto=format&fit=crop&w=1600";
-    const from = location.state?.from?.pathname || "/";
 
-    // Background slideshow
+    const bg1 = "https://images.unsplash.com/photo-1585937421612-70a008356fbe?auto=format&fit=crop&w=1600";
+    const bg2 = "https://images.unsplash.com/photo-1567337710282-00832b415979?auto=format&fit=crop&w=1600";
+    const bg3 = "https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?auto=format&fit=crop&w=1600";
+
     const backgrounds = [bg1, bg2, bg3];
+
     useEffect(() => {
         const interval = setInterval(() => {
             setCurrentBg((prev) => (prev + 1) % backgrounds.length);
@@ -32,54 +34,78 @@ const bg3 = "https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?auto=f
 
     const toggleTheme = () => setTheme(theme === "light" ? "dark" : "light");
 
-// inside AuthPage.jsx
+    // ✅ Google Login
+    const handleGoogleLogin = async () => {
+        try {
+            const result = await signInWithPopup(auth, googleProvider);
+            const googleUser = result.user;
 
-const handleAuth = async () => {
-  const BASE = "https://cravelt.onrender.com/api";
+            const normalizedUser = {
+                id: googleUser.uid,
+                name: googleUser.displayName,
+                email: googleUser.email,
+                photo: googleUser.photoURL,
+                foodPreferences: [],
+                role: googleUser.email === "admin123@gmail.com" ? "admin" : "user",
+            };
 
-  const url = mode === "login"
-    ? `${BASE}/users/login`
-    : `${BASE}/users`;
+            setUser(normalizedUser);
+            localStorage.setItem("user", JSON.stringify(normalizedUser));
 
-  const body = mode === "login"
-    ? { email, password }
-    : { fullName, email, password };
+            if (normalizedUser.role === "admin") {
+                navigate("/admin");
+            } else {
+                navigate("/preferences");
+            }
+        } catch (err) {
+            alert("Google login failed: " + err.message);
+        }
+    };
 
-  const res = await fetch(url, {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify(body),
-  });
+    const handleAuth = async () => {
+        const BASE = "https://cravelt.onrender.com/api";
 
-  const data = await res.json();
+        const url = mode === "login"
+            ? `${BASE}/users/login`
+            : `${BASE}/users`;
 
-  if (!res.ok) {
-    alert(data || "Something went wrong");
-    return;
-  }
+        const body = mode === "login"
+            ? { email, password }
+            : { fullName, email, password };
 
-const normalizedUser = {
-  id: data.id,
-  name: data.name,
-  email: data.email,
-  foodPreferences: data.foodPreferences || [],
-  role: data.role || (data.email === "admin123@gmail.com" ? "admin" : "user"), // ✅ add this
-};
+        const res = await fetch(url, {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(body),
+        });
 
-  console.log("SAVED USER:", normalizedUser); // ✅ verify id is here
+        const data = await res.json();
 
-  setUser(normalizedUser);
-  localStorage.setItem("user", JSON.stringify(normalizedUser));
+        if (!res.ok) {
+            alert(data || "Something went wrong");
+            return;
+        }
 
-  // With this:
-if (normalizedUser.email === "admin123@gmail.com" || normalizedUser.role === "admin") {
-    navigate("/admin");
-} else if (normalizedUser.foodPreferences.length === 0) {
-    navigate("/preferences");
-} else {
-    navigate("/");
-}
-};
+        const normalizedUser = {
+            id: data.id,
+            name: data.name,
+            email: data.email,
+            foodPreferences: data.foodPreferences || [],
+            role: data.role || (data.email === "admin123@gmail.com" ? "admin" : "user"),
+        };
+
+        setUser(normalizedUser);
+        localStorage.setItem("user", JSON.stringify(normalizedUser));
+
+        if (normalizedUser.email === "admin123@gmail.com" || normalizedUser.role === "admin") {
+            navigate("/admin");
+        } else if (normalizedUser.foodPreferences.length === 0) {
+            navigate("/preferences");
+        } else {
+            navigate("/");
+        }
+    };
+
     return (
         <div className={`auth-page ${theme}`}>
             <div className="background-container">
@@ -136,11 +162,45 @@ if (normalizedUser.email === "admin123@gmail.com" || normalizedUser.role === "ad
                 </div>
 
                 <button
-                    type="button"  // ✅ prevents accidental form submit reload
+                    type="button"
                     className={`auth-btn ${theme === "dark" ? "glow" : ""}`}
                     onClick={handleAuth}
                 >
                     {mode === "login" ? "Login" : "Sign Up"}
+                </button>
+
+                {/* ✅ Divider */}
+                <div style={{ textAlign: "center", color: "#aaa", margin: "12px 0", fontSize: 13 }}>
+                    — or —
+                </div>
+
+                {/* ✅ Google Button */}
+                <button
+                    type="button"
+                    onClick={handleGoogleLogin}
+                    style={{
+                        display: "flex",
+                        alignItems: "center",
+                        justifyContent: "center",
+                        gap: 10,
+                        width: "100%",
+                        padding: "12px",
+                        borderRadius: 8,
+                        border: "1px solid #ddd",
+                        background: "#fff",
+                        color: "#333",
+                        fontSize: 15,
+                        fontWeight: 600,
+                        cursor: "pointer",
+                        marginBottom: 12,
+                    }}
+                >
+                    <img
+                        src="https://www.google.com/favicon.ico"
+                        alt="Google"
+                        style={{ width: 20, height: 20 }}
+                    />
+                    Continue with Google
                 </button>
 
                 <p
