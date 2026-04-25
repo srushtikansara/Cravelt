@@ -61,7 +61,7 @@ export function FoodPreferences() {
     setUser(updatedUser);
     localStorage.setItem("user", JSON.stringify(updatedUser));
 
-    navigate("/profile");
+    navigate("/dashboard");
 };
 
     return (
